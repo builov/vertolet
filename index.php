@@ -234,7 +234,7 @@
                                                 <div class="elementor-element elementor-element-e7a365d elementor-align-center elementor-widget elementor-widget-button" data-id="e7a365d" data-element_type="widget" data-widget_type="button.default">
                                                     <div class="elementor-widget-container">
                                                         <div class="elementor-button-wrapper">
-                                                            <a href="https://ld-wp.template-help.com/wordpress_free/23520/fitting-a-square-building/" class="elementor-button-link elementor-button elementor-size-sm" role="button">
+                                                            <a href="" class="elementor-button-link elementor-button elementor-size-sm" role="button">
 						<span class="elementor-button-content-wrapper">
 						<span class="elementor-button-text">ИНДИВИДУАЛЬНЫЙ<br>ПОДХОД</span>
 		</span>
@@ -251,7 +251,7 @@
                                                 <div class="elementor-element elementor-element-a5307ad elementor-align-center elementor-widget elementor-widget-button" data-id="a5307ad" data-element_type="widget" data-widget_type="button.default">
                                                     <div class="elementor-widget-container">
                                                         <div class="elementor-button-wrapper">
-                                                            <a href="https://ld-wp.template-help.com/wordpress_free/23520/modern-extension-to-brick-house/" class="elementor-button-link elementor-button elementor-size-sm" role="button">
+                                                            <a href="" class="elementor-button-link elementor-button elementor-size-sm" role="button">
 						<span class="elementor-button-content-wrapper">
 						<span class="elementor-button-text">ГИБКОЕ<br>ЦЕНООБРАЗОВАНИЕ</span>
 		</span>
@@ -268,7 +268,7 @@
                                                 <div class="elementor-element elementor-element-979df34 elementor-align-center elementor-widget elementor-widget-button" data-id="979df34" data-element_type="widget" data-widget_type="button.default">
                                                     <div class="elementor-widget-container">
                                                         <div class="elementor-button-wrapper">
-                                                            <a href="https://ld-wp.template-help.com/wordpress_free/23520/tips-on-buying-a-fixer-upper-2/" class="elementor-button-link elementor-button elementor-size-sm" role="button">
+                                                            <a href="" class="elementor-button-link elementor-button elementor-size-sm" role="button">
 						<span class="elementor-button-content-wrapper">
 						<span class="elementor-button-text">ОПЕРАТИВНАЯ<br>ДОСТАВКА</span>
 		</span>
