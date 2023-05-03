@@ -844,24 +844,26 @@ use PHPMailer\PHPMailer\Exception;
 
 require 'vendor/autoload.php';
 
+require 'config.php';
+
 $mail = new PHPMailer(true);
 
 try {
     //Server settings
 //    $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
     $mail->isSMTP();
-    $mail->Host       = 'ssl://smtp.mail.ru';
+    $mail->Host       = SMTP_HOST;
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'builov@inbox.ru';
-    $mail->Password   = 'd8YuUGMqtinHQzS4huEe';
+    $mail->Username   = SMTP_USER;
+    $mail->Password   = SMTP_PASSWORD;
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-    $mail->Port       = 465;
+    $mail->Port       = SMTP_PORT;
 
     //Recipients
-    $mail->setFrom('builov@inbox.ru', 'Mailer');
+    $mail->setFrom(SMTP_FROM_DEFAULT, 'Mailer');
     $mail->addAddress('5905@lst.gr', 'Joe User');
 //    $mail->addAddress('ellen@example.com');               //Name is optional
-    $mail->addReplyTo('builov@inbox.ru', 'Information');
+    $mail->addReplyTo(SMTP_FROM_DEFAULT, 'Information');
 //    $mail->addCC('cc@example.com');
 //    $mail->addBCC('bcc@example.com');
 
