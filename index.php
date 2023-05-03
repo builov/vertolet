@@ -236,7 +236,7 @@
                                                         <div class="elementor-button-wrapper">
                                                             <a href="https://ld-wp.template-help.com/wordpress_free/23520/fitting-a-square-building/" class="elementor-button-link elementor-button elementor-size-sm" role="button">
 						<span class="elementor-button-content-wrapper">
-						<span class="elementor-button-text">ИНДИВИДУАЛЬНЫЙ ПОДХОД</span>
+						<span class="elementor-button-text">ИНДИВИДУАЛЬНЫЙ<br>ПОДХОД</span>
 		</span>
                                                             </a>
                                                         </div>
@@ -253,7 +253,7 @@
                                                         <div class="elementor-button-wrapper">
                                                             <a href="https://ld-wp.template-help.com/wordpress_free/23520/modern-extension-to-brick-house/" class="elementor-button-link elementor-button elementor-size-sm" role="button">
 						<span class="elementor-button-content-wrapper">
-						<span class="elementor-button-text">ЦЕНООБРАЗОВАНИЕ</span>
+						<span class="elementor-button-text">ГИБКОЕ<br>ЦЕНООБРАЗОВАНИЕ</span>
 		</span>
                                                             </a>
                                                         </div>
@@ -270,7 +270,7 @@
                                                         <div class="elementor-button-wrapper">
                                                             <a href="https://ld-wp.template-help.com/wordpress_free/23520/tips-on-buying-a-fixer-upper-2/" class="elementor-button-link elementor-button elementor-size-sm" role="button">
 						<span class="elementor-button-content-wrapper">
-						<span class="elementor-button-text">ОПЕРАТИВНАЯ ДОСТАВКА</span>
+						<span class="elementor-button-text">ОПЕРАТИВНАЯ<br>ДОСТАВКА</span>
 		</span>
                                                             </a>
                                                         </div>
