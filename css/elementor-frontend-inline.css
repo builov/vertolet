@@ -59,11 +59,16 @@
 /*.elementor-8 .elementor-element.elementor-element-5c62f5e6 > .elementor-element-populated > .elementor-background-overlay{transition:background 0.3s, border-radius 0.3s, opacity 0.3s;}*/
 
 .elementor-8 .elementor-element.elementor-element-e7a365d a.elementor-button, .elementor-8 .elementor-element.elementor-element-e7a365d .elementor-button
-{font-family:"Oswald", Sans-serif;font-size:24px;font-weight:700;text-transform:uppercase;font-style:normal;text-decoration:none;line-height:54px;letter-spacing:0px;color:#ffffff;background-color:rgba(0,0,0,0);}
+{font-family:"Oswald", Sans-serif;font-size:24px;font-weight:700;text-transform:uppercase;font-style:normal;text-decoration:none;
+    line-height:54px;letter-spacing:0px;color:#ffffff;background-color:rgba(0,0,0,0);}
 .elementor-8 .elementor-element.elementor-element-e7a365d a.elementor-button:hover, .elementor-8 .elementor-element.elementor-element-e7a365d .elementor-button:hover,
-.elementor-8 .elementor-element.elementor-element-e7a365d a.elementor-button:focus, .elementor-8 .elementor-element.elementor-element-e7a365d .elementor-button:focus{color:#f7992b;}
-.elementor-8 .elementor-element.elementor-element-e7a365d > .elementor-widget-container{margin:375px 0px 60px 0px;padding:0px 0px 0px 0px;}
-.elementor-8 .elementor-element.elementor-element-7a805b44 > .elementor-column-wrap > .elementor-widget-wrap > .elementor-widget:not(.elementor-widget__width-auto):not(.elementor-widget__width-initial):not(:last-child):not(.elementor-absolute) {margin-bottom:0px;}
+.elementor-8 .elementor-element.elementor-element-e7a365d a.elementor-button:focus,
+.elementor-8 .elementor-element.elementor-element-e7a365d .elementor-button:focus{color:#f7992b;}
+.elementor-8 .elementor-element.elementor-element-e7a365d > .elementor-widget-container {
+    margin:175px 0px 60px 0px;padding:0px 0px 0px 0px;
+}
+.elementor-8 .elementor-element.elementor-element-7a805b44 > .elementor-column-wrap > .elementor-widget-wrap > .elementor-widget:not(.elementor-widget__width-auto):not(.elementor-widget__width-initial):not(:last-child):not(.elementor-absolute)
+{margin-bottom:0px;}
 .elementor-8 .elementor-element.elementor-element-7a805b44:not(.elementor-motion-effects-element-type-background) > .elementor-element-populated,
 .elementor-8 .elementor-element.elementor-element-7a805b44 > .elementor-column-wrap > .elementor-motion-effects-container > .elementor-motion-effects-layer
 {
@@ -71,15 +76,19 @@
     background-image:url("../img/price4.jpg");
     background-position:center center;background-repeat:no-repeat;background-size:cover;
 }
-.elementor-8 .elementor-element.elementor-element-7a805b44 > .elementor-element-populated{transition:background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;margin:0px 15px 0px 15px;padding:0px 0px 0px 0px;}
+.elementor-8 .elementor-element.elementor-element-7a805b44 > .elementor-element-populated
+{transition:background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;margin:0px 15px 0px 15px;padding:0px 0px 0px 0px;}
 
 /*.elementor-8 .elementor-element.elementor-element-7a805b44 > .elementor-element-populated > .elementor-background-overlay{transition:background 0.3s, border-radius 0.3s, opacity 0.3s;}*/
 
 .elementor-8 .elementor-element.elementor-element-a5307ad a.elementor-button, .elementor-8 .elementor-element.elementor-element-a5307ad .elementor-button
 {font-family:"Oswald", Sans-serif;font-size:24px;font-weight:700;text-transform:uppercase;font-style:normal;text-decoration:none;line-height:54px;letter-spacing:0px;color:#ffffff;background-color:rgba(0,0,0,0);}
 .elementor-8 .elementor-element.elementor-element-a5307ad a.elementor-button:hover, .elementor-8 .elementor-element.elementor-element-a5307ad .elementor-button:hover,
-.elementor-8 .elementor-element.elementor-element-a5307ad a.elementor-button:focus, .elementor-8 .elementor-element.elementor-element-a5307ad .elementor-button:focus{color:#f7992b;}
-.elementor-8 .elementor-element.elementor-element-a5307ad > .elementor-widget-container{margin:375px 0px 60px 0px;padding:0px 0px 0px 0px;}
+.elementor-8 .elementor-element.elementor-element-a5307ad a.elementor-button:focus, .elementor-8 .elementor-element.elementor-element-a5307ad .elementor-button:focus
+{color:#f7992b;}
+.elementor-8 .elementor-element.elementor-element-a5307ad > .elementor-widget-container {
+    margin:175px 0px 60px 0px;padding:0px 0px 0px 0px;
+}
 .elementor-8 .elementor-element.elementor-element-73cd257f > .elementor-column-wrap > .elementor-widget-wrap > .elementor-widget:not(.elementor-widget__width-auto):not(.elementor-widget__width-initial):not(:last-child):not(.elementor-absolute){margin-bottom:0px;}
 .elementor-8 .elementor-element.elementor-element-73cd257f:not(.elementor-motion-effects-element-type-background) > .elementor-element-populated,
 .elementor-8 .elementor-element.elementor-element-73cd257f > .elementor-column-wrap > .elementor-motion-effects-container > .elementor-motion-effects-layer
@@ -92,7 +101,20 @@
 
 /*.elementor-8 .elementor-element.elementor-element-73cd257f > .elementor-element-populated > .elementor-background-overlay{transition:background 0.3s, border-radius 0.3s, opacity 0.3s;}*/
 
-.elementor-8 .elementor-element.elementor-element-979df34 a.elementor-button, .elementor-8 .elementor-element.elementor-element-979df34 .elementor-button{font-family:"Oswald", Sans-serif;font-size:24px;font-weight:700;text-transform:uppercase;font-style:normal;text-decoration:none;line-height:54px;letter-spacing:0px;color:#ffffff;background-color:rgba(0,0,0,0);}.elementor-8 .elementor-element.elementor-element-979df34 a.elementor-button:hover, .elementor-8 .elementor-element.elementor-element-979df34 .elementor-button:hover, .elementor-8 .elementor-element.elementor-element-979df34 a.elementor-button:focus, .elementor-8 .elementor-element.elementor-element-979df34 .elementor-button:focus{color:#f7992b;}.elementor-8 .elementor-element.elementor-element-979df34 > .elementor-widget-container{margin:375px 0px 60px 0px;padding:0px 0px 0px 0px;}.elementor-8 .elementor-element.elementor-element-73d12977:not(.elementor-motion-effects-element-type-background), .elementor-8 .elementor-element.elementor-element-73d12977 > .elementor-motion-effects-container > .elementor-motion-effects-layer{background-color:transparent;background-image:linear-gradient(90deg, #000000 70%, #ffffff 30%);}.elementor-8 .elementor-element.elementor-element-73d12977{transition:background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;margin-top:264px;margin-bottom:0px;}
+.elementor-8 .elementor-element.elementor-element-979df34 a.elementor-button,
+.elementor-8 .elementor-element.elementor-element-979df34 .elementor-button
+{font-family:"Oswald", Sans-serif;font-size:24px;font-weight:700;text-transform:uppercase;font-style:normal;text-decoration:none;line-height:54px;
+    letter-spacing:0px;color:#ffffff;background-color:rgba(0,0,0,0);}
+.elementor-8 .elementor-element.elementor-element-979df34 a.elementor-button:hover, .elementor-8 .elementor-element.elementor-element-979df34 .elementor-button:hover,
+.elementor-8 .elementor-element.elementor-element-979df34 a.elementor-button:focus, .elementor-8 .elementor-element.elementor-element-979df34 .elementor-button:focus
+{color:#f7992b;}
+.elementor-8 .elementor-element.elementor-element-979df34 > .elementor-widget-container {
+    margin:175px 0px 60px 0px;padding:0px 0px 0px 0px;
+}
+.elementor-8 .elementor-element.elementor-element-73d12977:not(.elementor-motion-effects-element-type-background),
+.elementor-8 .elementor-element.elementor-element-73d12977 > .elementor-motion-effects-container > .elementor-motion-effects-layer
+{background-color:transparent;background-image:linear-gradient(90deg, #000000 70%, #ffffff 30%);}
+.elementor-8 .elementor-element.elementor-element-73d12977{transition:background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;margin-top:264px;margin-bottom:0px;}
 
 /*.elementor-8 .elementor-element.elementor-element-73d12977 > .elementor-background-overlay{transition:background 0.3s, border-radius 0.3s, opacity 0.3s;}*/
 

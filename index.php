@@ -77,10 +77,10 @@
                 <nav id="site-navigation" class="main-navigation" role="navigation">
                     <div class="main-navigation-inner">
                         <ul id="main-menu" class="menu">
-                            <li id="menu-item-22" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22"><a href="" aria-current="page">О КОМПАНИИ</a></li>
-                            <li id="menu-item-21" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21"><a href="">ПРОДУКЦИЯ</a></li>
-                            <li id="menu-item-20" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20"><a href="">ПАРТНЕРЫ</a></li>
-                            <li id="menu-item-18" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-18"><a href="">КОНТАКТЫ</a></li>
+                            <li id="menu-item-22" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22"><a href="#about" aria-current="page">О КОМПАНИИ</a></li>
+                            <li id="menu-item-21" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21"><a href="#products">ПРОДУКЦИЯ</a></li>
+                            <li id="menu-item-20" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20"><a href="#partners">ПАРТНЕРЫ</a></li>
+                            <li id="menu-item-18" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-18"><a href="#contact">КОНТАКТЫ</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -178,6 +178,7 @@
                         <section class="elementor-element elementor-element-46dc31bf elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="46dc31bf" data-element_type="section">
                             <div class="elementor-container elementor-column-gap-default">
                                 <div class="elementor-row">
+
                                     <div class="elementor-element elementor-element-7fb97a98 elementor-column elementor-col-50 elementor-top-column" data-id="7fb97a98" data-element_type="column">
                                         <div class="elementor-column-wrap  elementor-element-populated">
                                             <div class="elementor-widget-wrap">
@@ -200,6 +201,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="elementor-element elementor-element-2ddaae7 elementor-column elementor-col-50 elementor-top-column" data-id="2ddaae7" data-element_type="column">
                                         <div class="elementor-column-wrap  elementor-element-populated">
                                             <div class="elementor-widget-wrap">
@@ -228,6 +230,7 @@
                         <section class="elementor-element elementor-element-3864ebd0 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="3864ebd0" data-element_type="section">
                             <div class="elementor-container elementor-column-gap-default">
                                 <div class="elementor-row">
+
                                     <div class="elementor-element elementor-element-5c62f5e6 elementor-invisible elementor-column elementor-col-33 elementor-top-column" data-id="5c62f5e6" data-element_type="column" data-settings="{&quot;animation&quot;:&quot;fadeInLeft&quot;}">
                                         <div class="elementor-column-wrap  elementor-element-populated">
                                             <div class="elementor-widget-wrap">
@@ -235,9 +238,9 @@
                                                     <div class="elementor-widget-container">
                                                         <div class="elementor-button-wrapper">
                                                             <a href="" class="elementor-button-link elementor-button elementor-size-sm" role="button">
-						<span class="elementor-button-content-wrapper">
-						<span class="elementor-button-text">ИНДИВИДУАЛЬНЫЙ<br>ПОДХОД</span>
-		</span>
+                                                                <span class="elementor-button-content-wrapper">
+                                                                    <span class="elementor-button-text">ИНДИВИДУАЛЬНЫЙ<br>ПОДХОД</span>
+                                                                </span>
                                                             </a>
                                                         </div>
                                                     </div>
@@ -245,6 +248,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="elementor-element elementor-element-7a805b44 elementor-invisible elementor-column elementor-col-33 elementor-top-column" data-id="7a805b44" data-element_type="column" data-settings="{&quot;animation&quot;:&quot;fadeInDown&quot;}">
                                         <div class="elementor-column-wrap  elementor-element-populated">
                                             <div class="elementor-widget-wrap">
@@ -252,9 +256,9 @@
                                                     <div class="elementor-widget-container">
                                                         <div class="elementor-button-wrapper">
                                                             <a href="" class="elementor-button-link elementor-button elementor-size-sm" role="button">
-						<span class="elementor-button-content-wrapper">
-						<span class="elementor-button-text">ГИБКОЕ<br>ЦЕНООБРАЗОВАНИЕ</span>
-		</span>
+						                                        <span class="elementor-button-content-wrapper">
+						                                            <span class="elementor-button-text">ГИБКОЕ<br>ЦЕНООБРАЗОВАНИЕ</span>
+		                                                        </span>
                                                             </a>
                                                         </div>
                                                     </div>
@@ -262,6 +266,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="elementor-element elementor-element-73cd257f elementor-invisible elementor-column elementor-col-33 elementor-top-column" data-id="73cd257f" data-element_type="column" data-settings="{&quot;animation&quot;:&quot;fadeInRight&quot;}">
                                         <div class="elementor-column-wrap  elementor-element-populated">
                                             <div class="elementor-widget-wrap">
@@ -269,9 +274,9 @@
                                                     <div class="elementor-widget-container">
                                                         <div class="elementor-button-wrapper">
                                                             <a href="" class="elementor-button-link elementor-button elementor-size-sm" role="button">
-						<span class="elementor-button-content-wrapper">
-						<span class="elementor-button-text">ОПЕРАТИВНАЯ<br>ДОСТАВКА</span>
-		</span>
+                                                                <span class="elementor-button-content-wrapper">
+                                                                    <span class="elementor-button-text">ОПЕРАТИВНАЯ<br>ДОСТАВКА</span>
+                                                                </span>
                                                             </a>
                                                         </div>
                                                     </div>
@@ -523,7 +528,7 @@
 
                         <!-- partners -->
 
-
+<a id="partners"></a>
 
                         <section class="elementor-element elementor-element-7e8fc924 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="7e8fc924" data-element_type="section">
                             <div class="elementor-container elementor-column-gap-default">
@@ -812,6 +817,37 @@
     //     // src: "#dialog-content",
     //     type: "inline"
     // });
+
+    // собираем все якоря; устанавливаем время анимации и количество кадров
+    const anchors = [].slice.call(document.querySelectorAll('a[href*="#"]')),
+        animationTime = 300,
+        framesCount = 20;
+
+    anchors.forEach(function(item) {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            // для каждого якоря берем соответствующий ему элемент и определяем его координату Y
+            let coordY = document.querySelector(item.getAttribute('href')).getBoundingClientRect().top + window.pageYOffset;
+
+            // запускаем интервал, в котором
+            let scroller = setInterval(function() {
+                // считаем на сколько скроллить за 1 такт
+                let scrollBy = coordY / framesCount;
+
+                // если к-во пикселей для скролла за 1 такт больше расстояния до элемента и дно страницы не достигнуто
+                if(scrollBy > window.pageYOffset - coordY && window.innerHeight + window.pageYOffset < document.body.offsetHeight) {
+                    // то скроллим на к-во пикселей, которое соответствует одному такту
+                    window.scrollBy(0, scrollBy);
+                } else {
+                    // иначе добираемся до элемента и выходим из интервала
+                    window.scrollTo(0, coordY);
+                    clearInterval(scroller);
+                }
+                // время интервала равняется частному от времени анимации и к-ва кадров
+            }, animationTime / framesCount);
+        });
+    });
 </script>
 <script type='text/javascript'>
     /* <![CDATA[ */
