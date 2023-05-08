@@ -43,6 +43,19 @@
     <!--	<link rel="icon" href="https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/cropped-favicon-192x192.png" sizes="192x192" />-->
     <!--	<link rel="apple-touch-icon-precomposed" href="https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/cropped-favicon-180x180.png" />-->
     <!--	<meta name="msapplication-TileImage" content="https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/cropped-favicon-270x270.png" />-->
+
+    <style>
+        body {
+            font-style: normal;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 2.142;
+            font-family: Montserrat, sans-serif;
+            letter-spacing: 0px;
+            text-align: left;
+            color: #3b3d42;
+        }
+    </style>
 </head>
 
 <body class="home page-template page-template-page-templates page-template-fullwidth-content page-template-page-templatesfullwidth-content-php page page-id-8 top-panel-invisible layout-fullwidth blog- elementor-default elementor-page elementor-page-8">
@@ -55,14 +68,57 @@
     <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
 
     <style>
-        header#masthead,
-        header#masthead div
-        {
+        @font-face {
+            font-family: 'Fontin-Sans-CR-Regular';
+            src:url('fonts/Fontin-Sans-CR-Regular.ttf.woff') format('woff'),
+            url('fonts/Fontin-Sans-CR-Regular.ttf.svg#Fontin-Sans-CR-Regular') format('svg'),
+            url('fonts/Fontin-Sans-CR-Regular.ttf.eot'),
+            url('fonts/Fontin-Sans-CR-Regular.ttf.eot?#iefix') format('embedded-opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        header#masthead {
+            background: #000000;
+            height: 0;
+            overflow: visible;
+        }
+        header#masthead div {
             background: #000000;
         }
+        @media(min-width:640px) {
+            header#masthead,
+            header#masthead div
+            {
+                height: auto;
+            }
+        }
         .site-branding img {
-            width: 300px;
+            width: 200px;
             height: auto;
+        }
+        .site-branding a.text {
+            color: #ffffff;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 19px;
+            line-height: 1.4;
+            font-family: 'Fontin-Sans-CR-Regular';
+            letter-spacing: 4px;
+            display: none;
+        }
+        @media(min-width:640px) {
+            header#masthead.sticky {
+                position: fixed;
+                top: 0;
+                width: 100%;
+                z-index: 99999;
+            }
+            header#masthead.sticky .site-branding a.text {
+                display: inherit;
+            }
+        }
+        .sticky .site-branding img {
+            display: none;
         }
     </style>
 
@@ -71,7 +127,8 @@
             <div class="space-between-content">
 
                 <div class="site-branding">
-                    <a href="/" rel="home"><img src="img/logo2.png" class="logo" alt=""></a>
+                    <a href="/" rel="home"><img src="img/logo3.png" class="logo" alt=""></a>
+                    <a href="/" rel="home" class="text">VERTOLЁT</a>
                 </div>
 
                 <nav id="site-navigation" class="main-navigation" role="navigation">
@@ -101,7 +158,7 @@
                             .elementor-8 .elementor-element.elementor-element-bdc61ec > .elementor-container {
                                 max-width:1200px;
                                 /*min-height:100vh;*/
-                                min-height: calc(100vh - 138px);
+                                min-height: calc(100vh - 80px);
                             }
                             .elementor-8 .elementor-element.elementor-element-bdc61ec .elementor-background-overlay {
                                 overflow: hidden;
@@ -123,6 +180,26 @@
                                 width: auto;
                                 min-height: 100%;
                                 /*min-height: calc(100vh - 138px);*/
+                            }
+
+                            .elementor-8 .elementor-element.elementor-element-3fdfd82 .elementor-heading-title {
+                                font-family: 'Fontin-Sans-CR-Regular';
+                                letter-spacing: 9px;
+                                display: inline-block;
+                                padding: 0 50px 12px;
+                                border-bottom: 2px solid aliceblue;
+                            }
+                            .elementor-8 .elementor-element.elementor-element-c9417bc {
+                                color: #ffffff;
+                                /*font-family: "Oswald", Sans-serif;*/
+                                /*font-family: Roboto, sans-serif;*/
+                                font-family: Montserrat, sans-serif;
+                                font-size: 15px;
+                                font-weight: 500;
+                                text-transform: uppercase;
+                                font-style: normal;
+                                line-height: 42px;
+                                letter-spacing: 5px;
                             }
                         </style>
 
@@ -155,7 +232,7 @@
                                                         <div class="elementor-button-wrapper">
                                                             <a id="testlink" href="https://ld-wp.template-help.com/wordpress_free/23520/about/" class="elementor-button-link elementor-button elementor-size-sm" role="button">
                                                                 <span class="elementor-button-content-wrapper">
-                                                                    <span id="order-button" class="elementor-button-text">Заказ</span>
+                                                                    <span id="order-button" class="elementor-button-text">Оставить заявку</span>
                                                                 </span>
                                                             </a>
                                                         </div>
@@ -173,7 +250,42 @@
 
                         <!-- About company -->
 
+                        <style>
+                            ul.check {
+                                /*list-style-image: url(img/success-green-check-mark-icon.svg);*/
+                                list-style: none inside;
+                                margin: 0;
+                            }
+                            ul.check li {
+                                margin-left: 35px;
+                            }
+                            ul.check li:before {
+                                content: '';
+                                display: inline-block;
+                                height: 25px;
+                                width: 35px;
+                                background-image: url('img/success-green-check-mark-icon.svg');
+                                background-size: contain;
+                                background-repeat: no-repeat;
+                                margin-left: -35px;
+                                top: 7px;
+                                position: relative;
+                            }
+                            .elementor-8 .elementor-element.elementor-element-4e8da247 {
+                                font-family: "Montserrat", Sans-serif;
+                                font-size: 16px;
+                                font-weight: 300;
+                                line-height: 2.143em;
+                            }
+                            .elementor-8 .elementor-element.elementor-element-10623144 {
+                                font-family: "Montserrat", Sans-serif;
+                                font-size: 16px;
+                                font-weight: 500;
+                                line-height: 2.143em;
+                            }
+                        </style>
 
+                        <a id="about"></a>
 
                         <section class="elementor-element elementor-element-46dc31bf elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="46dc31bf" data-element_type="section">
                             <div class="elementor-container elementor-column-gap-default">
@@ -205,19 +317,26 @@
                                     <div class="elementor-element elementor-element-2ddaae7 elementor-column elementor-col-50 elementor-top-column" data-id="2ddaae7" data-element_type="column">
                                         <div class="elementor-column-wrap  elementor-element-populated">
                                             <div class="elementor-widget-wrap">
-                                                <div class="elementor-element elementor-element-10623144 elementor-widget elementor-widget-text-editor" data-id="10623144" data-element_type="widget" data-widget_type="text-editor.default">
+                                                <div class="elementor-element elementor-element-4e8da247 elementor-widget elementor-widget-text-editor" data-id="10623144" data-element_type="widget" data-widget_type="text-editor.default">
                                                     <div class="elementor-widget-container">
                                                         <div class="elementor-text-editor elementor-clearfix">
-                                                            <p>Наши преимущества:</p>
+                                                            <p>Несмотря на относительную молодость, компания «Вертолёт» занимает прочные позиции на рынке
+                                                                поставок строительного оборудования. Благодаря знанию специфики отрасли,
+                                                                гибкой ценовой политике, особому вниманию к качеству поставляемых товаров и
+                                                                оперативному выполнению заказов, компания пользуется заслуженным уважением у
+                                                                своих деловых партнеров.</p>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="elementor-element elementor-element-4e8da247 elementor-widget elementor-widget-text-editor" data-id="4e8da247" data-element_type="widget" data-widget_type="text-editor.default">
+                                                <div class="elementor-element elementor-element-10623144 elementor-widget elementor-widget-text-editor" data-id="4e8da247" data-element_type="widget" data-widget_type="text-editor.default">
                                                     <div class="elementor-widget-container">
                                                         <div class="elementor-text-editor elementor-clearfix">
-                                                            <p>- гибкие условия сотрудничества<br>
-                                                                - ценообразование, низкие цены благодаря прямым договорам с производимтельями<br>
-                                                                - оперативная доставка</p>
+                                                            <p>Наши преимущества:</p>
+                                                            <ul class="check">
+                                                                <li>гибкие условия сотрудничества</li>
+                                                                <li>ценообразование, низкие цены благодаря прямым договорам с производимтельями</li>
+                                                                <li>оперативная доставка</li>
+                                                            </ul>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -227,6 +346,24 @@
                                 </div>
                             </div>
                         </section>
+
+                        <style>
+                            .elementor-8 .elementor-element-3864ebd0 a.elementor-button,
+                            .elementor-8 .elementor-element-3864ebd0 .elementor-button
+                            {
+                                font-family: "Oswald", Sans-serif;
+                                font-size: 24px;
+                                font-weight: 700;
+                                text-transform: uppercase;
+                                font-style: normal;
+                                line-height: 54px;
+                                letter-spacing: 0px;
+                                color: #ffffff;
+
+                                text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
+                                /*text-shadow: 0 0 10px #000;*/
+                            }
+                        </style>
                         <section class="elementor-element elementor-element-3864ebd0 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="3864ebd0" data-element_type="section">
                             <div class="elementor-container elementor-column-gap-default">
                                 <div class="elementor-row">
@@ -331,7 +468,14 @@
                                                 </div>
                                                 <div class="elementor-element elementor-element-49d33cb3 elementor-widget elementor-widget-text-editor" data-id="49d33cb3" data-element_type="widget" data-widget_type="text-editor.default">
                                                     <div class="elementor-widget-container">
-                                                        <div class="elementor-text-editor elementor-clearfix"><p>Designing sustainable, high-performance buildings requires an integration of architectural and engineered systems into a balanced design of sustainability and cost-effectiveness. Archus merges these practices with the unique requirements and guidelines necessary for advanced technology facilities.</p></div>
+                                                        <div class="elementor-text-editor elementor-clearfix">
+                                                            <p>Designing sustainable, high-performance buildings requires an
+                                                                integration of architectural and engineered systems into a balanced
+                                                                design of sustainability and cost-effectiveness. Archus merges these
+                                                                practices with the unique requirements and guidelines necessary for
+                                                                advanced technology facilities.
+                                                            </p>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="elementor-element elementor-element-694ed43b elementor-widget elementor-widget-button" data-id="694ed43b" data-element_type="widget" data-widget_type="button.default">
@@ -419,7 +563,19 @@
 
                         <!-- PORTFOLIO -->
 
+                        <style>
+                            h2.elementor-heading-title.nowrap {
+                                white-space: nowrap;
+                            }
+                            .elementor-8 .elementor-element.elementor-element-4a4acb90 {
+                                font-family: "Montserrat", Sans-serif;
+                                font-size: 16px;
+                                font-weight: 300;
+                                line-height: 2.143em;
+                            }
+                        </style>
 
+                        <a id="products"></a>
 
                         <section class="elementor-element elementor-element-673a6327 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="673a6327" data-element_type="section">
                             <div class="elementor-container elementor-column-gap-default">
@@ -429,12 +585,13 @@
                                             <div class="elementor-widget-wrap">
                                                 <div class="elementor-element elementor-element-26b34b81 elementor-invisible elementor-widget elementor-widget-heading" data-id="26b34b81" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInRight&quot;}" data-widget_type="heading.default">
                                                     <div class="elementor-widget-container">
-                                                        <h5 class="elementor-heading-title elementor-size-default">PORTFOLIO</h5>		</div>
+                                                        <h5 class="elementor-heading-title elementor-size-default">КАТАЛОГ</h5>		</div>
                                                 </div>
                                                 <div class="elementor-element elementor-element-1f6ee7e3 elementor-invisible elementor-widget elementor-widget-heading" data-id="1f6ee7e3" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInLeft&quot;}" data-widget_type="heading.default">
                                                     <div class="elementor-widget-container">
-                                                        <h2 class="elementor-heading-title elementor-size-default">our Latest<br>
-                                                            Projects</h2>		</div>
+                                                        <h2 class="elementor-heading-title elementor-size-default nowrap">поставляемая<br>
+                                                            продукция</h2>
+                                                    </div>
                                                 </div>
                                                 <div class="elementor-element elementor-element-1e312b67 animated-slow elementor-invisible elementor-widget elementor-widget-divider" data-id="1e312b67" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInRight&quot;}" data-widget_type="divider.default">
                                                     <div class="elementor-widget-container">
@@ -451,7 +608,13 @@
                                             <div class="elementor-widget-wrap">
                                                 <div class="elementor-element elementor-element-4a4acb90 elementor-widget elementor-widget-text-editor" data-id="4a4acb90" data-element_type="widget" data-widget_type="text-editor.default">
                                                     <div class="elementor-widget-container">
-                                                        <div class="elementor-text-editor elementor-clearfix"><p>We specialize in author’s projects which represent your individuality. Our award-winning designers know how to create a perfect space for your. We stand for durable materials, qualitative work and innovative technologies. Enjoy our unique architectural solution and design projects! Archivolt.</p></div>
+                                                        <div class="elementor-text-editor elementor-clearfix">
+                                                            <p>Мы предлагаеи строительные и расходные материалы как от ведущих отечественных, так и от зарубежных производителей.
+                                                                Уделяем особое внимание качеству поставляемой продукции.
+                                                                Отслеживаем актуальные для наших партнеров новинки в производстве товаров для стройиндустрии,
+                                                                оперативно добавляем их в свой каталог.
+                                                            </p>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -467,7 +630,11 @@
 
                         <!-- Gallery -->
 
-
+                        <style>
+                            .elementor-8 .elementor-element.elementor-element-373a07a > .elementor-container {
+                                max-width:1060px;
+                            }
+                        </style>
 
                         <section class="elementor-element elementor-element-373a07a elementor-section-full_width elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="373a07a" data-element_type="section">
                             <div class="elementor-container elementor-column-gap-no">
@@ -478,28 +645,28 @@
                                                 <div class="elementor-element elementor-element-938fadc gallery-spacing-custom elementor-widget elementor-widget-image-gallery" data-id="938fadc" data-element_type="widget" data-widget_type="image-gallery.default">
                                                     <div class="elementor-widget-container">
                                                         <div class="elementor-image-gallery">
-                                                            <div id='gallery-1' class='gallery galleryid-8 gallery-columns-3 gallery-size-worky-thumb-masonry'>
-
+                                                            <div id='gallery-1' class='gallery galleryid-8 gallery-columns-6 gallery-size-worky-thumb-masonry'>
 
                                                                 <figure class='gallery-item'>
-                                                                    <div class='gallery-icon portrait'>
-                                                                        <a data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="938fadc" href='https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-1.jpg'><img width="600" height="616" src="https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-1-600x616.jpg" class="attachment-worky-thumb-masonry size-worky-thumb-masonry" alt="" srcset="https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-1-600x616.jpg 600w, https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-1-292x300.jpg 292w, https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-1-768x788.jpg 768w, https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-1-998x1024.jpg 998w, https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-1.jpg 1024w" sizes="(max-width: 600px) 100vw, 600px" /></a>
-                                                                    </div></figure><figure class='gallery-item'>
-                                                                    <div class='gallery-icon portrait'>
-                                                                        <a data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="938fadc" href='https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-2.jpg'><img width="600" height="616" src="https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-2-600x616.jpg" class="attachment-worky-thumb-masonry size-worky-thumb-masonry" alt="" srcset="https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-2-600x616.jpg 600w, https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-2-292x300.jpg 292w, https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-2-768x788.jpg 768w, https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-2-998x1024.jpg 998w, https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-2.jpg 1024w" sizes="(max-width: 600px) 100vw, 600px" /></a>
-                                                                    </div></figure><figure class='gallery-item'>
-                                                                    <div class='gallery-icon portrait'>
-                                                                        <a data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="938fadc" href='https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-3.jpg'><img width="600" height="616" src="https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-3-600x616.jpg" class="attachment-worky-thumb-masonry size-worky-thumb-masonry" alt="" srcset="https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-3-600x616.jpg 600w, https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-3-292x300.jpg 292w, https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-3-768x788.jpg 768w, https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-3-998x1024.jpg 998w, https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-3.jpg 1024w" sizes="(max-width: 600px) 100vw, 600px" /></a>
-                                                                    </div></figure><figure class='gallery-item'>
-                                                                    <div class='gallery-icon portrait'>
-                                                                        <a data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="938fadc" href='https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-4.jpg'><img width="600" height="616" src="https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-4-600x616.jpg" class="attachment-worky-thumb-masonry size-worky-thumb-masonry" alt="" srcset="https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-4-600x616.jpg 600w, https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-4-292x300.jpg 292w, https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-4-768x788.jpg 768w, https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-4-998x1024.jpg 998w, https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-4.jpg 1024w" sizes="(max-width: 600px) 100vw, 600px" /></a>
-                                                                    </div></figure><figure class='gallery-item'>
-                                                                    <div class='gallery-icon portrait'>
-                                                                        <a data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="938fadc" href='https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-5.jpg'><img width="600" height="616" src="https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-5-600x616.jpg" class="attachment-worky-thumb-masonry size-worky-thumb-masonry" alt="" srcset="https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-5-600x616.jpg 600w, https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-5-292x300.jpg 292w, https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-5-768x788.jpg 768w, https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-5-998x1024.jpg 998w, https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-5.jpg 1024w" sizes="(max-width: 600px) 100vw, 600px" /></a>
-                                                                    </div></figure><figure class='gallery-item'>
-                                                                    <div class='gallery-icon portrait'>
-                                                                        <a data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="938fadc" href='https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-6.jpg'><img width="600" height="616" src="https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-6-600x616.jpg" class="attachment-worky-thumb-masonry size-worky-thumb-masonry" alt="" srcset="https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-6-600x616.jpg 600w, https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-6-292x300.jpg 292w, https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-6-768x788.jpg 768w, https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-6-998x1024.jpg 998w, https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-6.jpg 1024w" sizes="(max-width: 600px) 100vw, 600px" /></a>
-                                                                    </div></figure>
+                                                                    <img width="600" height="616" src="img/catalog/pilo.webp" />
+                                                                    <h5>Пиломатериалы</h5>
+                                                                </figure><figure class='gallery-item'>
+                                                                    <img width="600" height="616" src="img/catalog/zapor.webp" />
+                                                                    <h5>Запорная арматура и электроприводы</h5>
+                                                                </figure><figure class='gallery-item'>
+                                                                    <img width="600" height="616" src="img/catalog/stroy.webp" />
+                                                                    <h5>Стройматериалы</h5>
+                                                                </figure><figure class='gallery-item'>
+                                                                    <img width="600" height="616" src="img/catalog/trub.webp" />
+                                                                    <h5>Трубы и фитинги</h5>
+                                                                </figure><figure class='gallery-item'>
+                                                                    <img width="600" height="616" src="img/catalog/santeh.webp" />
+                                                                    <h5>Сантехника</h5>
+                                                                </figure><figure class='gallery-item'>
+                                                                    <img width="600" height="616" src="img/catalog/radiat.webp" />
+                                                                    <h5>Радиаторы отопления (батареи) </h5>
+                                                                </figure>
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -507,10 +674,11 @@
                                                 <div class="elementor-element elementor-element-77141a4 elementor-align-center elementor-widget elementor-widget-button" data-id="77141a4" data-element_type="widget" data-widget_type="button.default">
                                                     <div class="elementor-widget-container">
                                                         <div class="elementor-button-wrapper">
-                                                            <a href="https://ld-wp.template-help.com/wordpress_free/23520/about/" class="elementor-button-link elementor-button elementor-size-sm" role="button">
-						<span class="elementor-button-content-wrapper">
-						<span class="elementor-button-text">view more</span>
-		</span>
+                                                            <a href=""
+                                                               class="elementor-button-link elementor-button elementor-size-sm" role="button">
+                                                                <span class="elementor-button-content-wrapper">
+                                                                    <span class="elementor-button-text">скачать каталог</span>
+                                                                </span>
                                                             </a>
                                                         </div>
                                                     </div>
@@ -528,7 +696,13 @@
 
                         <!-- partners -->
 
-<a id="partners"></a>
+                        <style>
+                            .elementor-element-7c27a44a .elementor-widget-container {
+                                margin: 0px 0px 30px 0px;
+                            }
+                        </style>
+
+                        <a id="partners"></a>
 
                         <section class="elementor-element elementor-element-7e8fc924 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="7e8fc924" data-element_type="section">
                             <div class="elementor-container elementor-column-gap-default">
@@ -538,12 +712,12 @@
                                             <div class="elementor-widget-wrap">
                                                 <div class="elementor-element elementor-element-2db20220 elementor-invisible elementor-widget elementor-widget-heading" data-id="2db20220" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInRight&quot;}" data-widget_type="heading.default">
                                                     <div class="elementor-widget-container">
-                                                        <h5 class="elementor-heading-title elementor-size-default">partners</h5>		</div>
+                                                        <h5 class="elementor-heading-title elementor-size-default">партнеры</h5>		</div>
                                                 </div>
                                                 <div class="elementor-element elementor-element-da918c4 elementor-invisible elementor-widget elementor-widget-heading" data-id="da918c4" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInLeft&quot;}" data-widget_type="heading.default">
                                                     <div class="elementor-widget-container">
-                                                        <h2 class="elementor-heading-title elementor-size-default">OUR CLIENTS &
-                                                            PARTNERS</h2>		</div>
+                                                        <h2 class="elementor-heading-title elementor-size-default">НАШИ ЗАКАЗЧИКИ И ПАРТНЕРЫ</h2>
+                                                    </div>
                                                 </div>
                                                 <div class="elementor-element elementor-element-674e0e44 animated-slow elementor-invisible elementor-widget elementor-widget-divider" data-id="674e0e44" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInRight&quot;}" data-widget_type="divider.default">
                                                     <div class="elementor-widget-container">
@@ -555,9 +729,21 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="elementor-element elementor-element-5fdd8755 elementor-column elementor-col-50 elementor-top-column" data-id="5fdd8755" data-element_type="column">
+                                    <div class="elementor-element elementor-element-5fdd8755 elementor-column elementor-col-50 elementor-top-column"
+                                         data-id="5fdd8755" data-element_type="column">
                                         <div class="elementor-column-wrap  elementor-element-populated">
                                             <div class="elementor-widget-wrap">
+
+                                                <section class="elementor-element elementor-element-7c27a44a elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-inner-section" data-id="7c27a44a" data-element_type="section">
+                                                    <div class="elementor-container elementor-column-gap-default">
+                                                        <div class="elementor-row">
+                                                            <div class="elementor-widget-container">
+                                                                <p>Мы сотрудничаем с большим количеством предприятий строительной отрасли, среди которых такие крупные компании, как:</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+
                                                 <section class="elementor-element elementor-element-7c27a44a elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-inner-section" data-id="7c27a44a" data-element_type="section">
                                                     <div class="elementor-container elementor-column-gap-default">
                                                         <div class="elementor-row">
@@ -567,7 +753,7 @@
                                                                         <div class="elementor-element elementor-element-38abf7fb elementor-widget elementor-widget-image" data-id="38abf7fb" data-element_type="widget" data-widget_type="image.default">
                                                                             <div class="elementor-widget-container">
                                                                                 <div class="elementor-image">
-                                                                                    <img width="135" height="102" src="https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/home-brands-1.png" class="attachment-full size-full" alt="" />											</div>
+                                                                                    <img width="135" height="102" src="img/pik.svg" class="attachment-full size-full" alt="" />											</div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -579,7 +765,7 @@
                                                                         <div class="elementor-element elementor-element-63bd0f73 elementor-widget elementor-widget-image" data-id="63bd0f73" data-element_type="widget" data-widget_type="image.default">
                                                                             <div class="elementor-widget-container">
                                                                                 <div class="elementor-image">
-                                                                                    <img width="144" height="73" src="https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/home-brands-2.png" class="attachment-full size-full" alt="" />											</div>
+                                                                                    <img width="144" height="73" src="img/Russian_Railways_logo.svg" class="attachment-full size-full" alt="" />											</div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -591,7 +777,7 @@
                                                                         <div class="elementor-element elementor-element-696e50b9 elementor-widget elementor-widget-image" data-id="696e50b9" data-element_type="widget" data-widget_type="image.default">
                                                                             <div class="elementor-widget-container">
                                                                                 <div class="elementor-image">
-                                                                                    <img width="160" height="76" src="https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/home-brands-3.png" class="attachment-full size-full" alt="" />											</div>
+                                                                                    <img width="160" height="76" src="img/smlt_logo_blue_ru.svg" class="attachment-full size-full" alt="" />											</div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -601,54 +787,49 @@
                                                     </div>
                                                 </section>
 
+<!--                                                <section class="elementor-element elementor-element-50c644e6 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-inner-section" data-id="50c644e6" data-element_type="section">-->
+<!--                                                    <div class="elementor-container elementor-column-gap-default">-->
+<!--                                                        <div class="elementor-row">-->
+<!--                                                            <div class="elementor-element elementor-element-162eba31 elementor-column elementor-col-33 elementor-inner-column" data-id="162eba31" data-element_type="column">-->
+<!--                                                                <div class="elementor-column-wrap  elementor-element-populated">-->
+<!--                                                                    <div class="elementor-widget-wrap">-->
+<!--                                                                        <div class="elementor-element elementor-element-49e89c75 elementor-widget elementor-widget-image" data-id="49e89c75" data-element_type="widget" data-widget_type="image.default">-->
+<!--                                                                            <div class="elementor-widget-container">-->
+<!--                                                                                <div class="elementor-image">-->
+<!--                                                                                    <img width="139" height="76" src="https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/home-brands-4.png" class="attachment-full size-full" alt="" />											</div>-->
+<!--                                                                            </div>-->
+<!--                                                                        </div>-->
+<!--                                                                    </div>-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                            <div class="elementor-element elementor-element-1d840ef3 elementor-column elementor-col-33 elementor-inner-column" data-id="1d840ef3" data-element_type="column">-->
+<!--                                                                <div class="elementor-column-wrap  elementor-element-populated">-->
+<!--                                                                    <div class="elementor-widget-wrap">-->
+<!--                                                                        <div class="elementor-element elementor-element-783f9473 elementor-widget elementor-widget-image" data-id="783f9473" data-element_type="widget" data-widget_type="image.default">-->
+<!--                                                                            <div class="elementor-widget-container">-->
+<!--                                                                                <div class="elementor-image">-->
+<!--                                                                                    <img width="141" height="82" src="https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/home-brands-5.png" class="attachment-full size-full" alt="" />											</div>-->
+<!--                                                                            </div>-->
+<!--                                                                        </div>-->
+<!--                                                                    </div>-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                            <div class="elementor-element elementor-element-53be9e4b elementor-column elementor-col-33 elementor-inner-column" data-id="53be9e4b" data-element_type="column">-->
+<!--                                                                <div class="elementor-column-wrap  elementor-element-populated">-->
+<!--                                                                    <div class="elementor-widget-wrap">-->
+<!--                                                                        <div class="elementor-element elementor-element-1807c3f1 elementor-widget elementor-widget-image" data-id="1807c3f1" data-element_type="widget" data-widget_type="image.default">-->
+<!--                                                                            <div class="elementor-widget-container">-->
+<!--                                                                                <div class="elementor-image">-->
+<!--                                                                                    <img width="124" height="97" src="https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/home-brands-6.png" class="attachment-full size-full" alt="" />											</div>-->
+<!--                                                                            </div>-->
+<!--                                                                        </div>-->
+<!--                                                                    </div>-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                </section>-->
 
-
-
-                                                <!-- Contact -->
-
-
-                                                <section class="elementor-element elementor-element-50c644e6 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-inner-section" data-id="50c644e6" data-element_type="section">
-                                                    <div class="elementor-container elementor-column-gap-default">
-                                                        <div class="elementor-row">
-                                                            <div class="elementor-element elementor-element-162eba31 elementor-column elementor-col-33 elementor-inner-column" data-id="162eba31" data-element_type="column">
-                                                                <div class="elementor-column-wrap  elementor-element-populated">
-                                                                    <div class="elementor-widget-wrap">
-                                                                        <div class="elementor-element elementor-element-49e89c75 elementor-widget elementor-widget-image" data-id="49e89c75" data-element_type="widget" data-widget_type="image.default">
-                                                                            <div class="elementor-widget-container">
-                                                                                <div class="elementor-image">
-                                                                                    <img width="139" height="76" src="https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/home-brands-4.png" class="attachment-full size-full" alt="" />											</div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="elementor-element elementor-element-1d840ef3 elementor-column elementor-col-33 elementor-inner-column" data-id="1d840ef3" data-element_type="column">
-                                                                <div class="elementor-column-wrap  elementor-element-populated">
-                                                                    <div class="elementor-widget-wrap">
-                                                                        <div class="elementor-element elementor-element-783f9473 elementor-widget elementor-widget-image" data-id="783f9473" data-element_type="widget" data-widget_type="image.default">
-                                                                            <div class="elementor-widget-container">
-                                                                                <div class="elementor-image">
-                                                                                    <img width="141" height="82" src="https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/home-brands-5.png" class="attachment-full size-full" alt="" />											</div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="elementor-element elementor-element-53be9e4b elementor-column elementor-col-33 elementor-inner-column" data-id="53be9e4b" data-element_type="column">
-                                                                <div class="elementor-column-wrap  elementor-element-populated">
-                                                                    <div class="elementor-widget-wrap">
-                                                                        <div class="elementor-element elementor-element-1807c3f1 elementor-widget elementor-widget-image" data-id="1807c3f1" data-element_type="widget" data-widget_type="image.default">
-                                                                            <div class="elementor-widget-container">
-                                                                                <div class="elementor-image">
-                                                                                    <img width="124" height="97" src="https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/home-brands-6.png" class="attachment-full size-full" alt="" />											</div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </section>
                                             </div>
                                         </div>
                                     </div>
@@ -657,8 +838,18 @@
                         </section>
 
 
+                        <!-- Contact -->
 
+                        <style>
+                            .elementor-8 .elementor-element.elementor-element-54d2b293 > .elementor-widget-container {
+                                margin: 0px 0px 0px 0px;
+                            }
+                            .elementor-8 .elementor-element.elementor-element-54d2b293 .elementor-social-icon {
+                                padding: 0;
+                            }
+                        </style>
 
+                        <a id="contact"></a>
 
                         <section class="elementor-element elementor-element-58631911 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="58631911" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
                             <div class="elementor-container elementor-column-gap-no">
@@ -683,36 +874,48 @@
                                                 </div>
                                                 <div class="elementor-element elementor-element-276ee3be elementor-widget elementor-widget-text-editor" data-id="276ee3be" data-element_type="widget" data-widget_type="text-editor.default">
                                                     <div class="elementor-widget-container">
-                                                        <div class="elementor-text-editor elementor-clearfix"><p>Phone: <a href="tel:+5551234567">(555)123-4567</a><br />E-mail: <a href="mailto:info@demolink.org">info@demolink.org</a><br />Address: Alexandria, 32 Washingtorn str, 22303<br />Opening hours:<br />Monday — Thursday 10:00 &#8211; 23:00<br />Friday — Sunday 10:00 &#8211; 19:00</p></div>
+                                                        <div class="elementor-text-editor elementor-clearfix">
+                                                            <p>Телефон: <a href="tel:+5551234567">(555)123-4567</a><br />
+                                                                E-mail: <a href="mailto:info@demolink.org">info@demolink.org</a><br />
+                                                                Адрес: Alexandria, 32 Washingtorn str, 22303<br />
+                                                                Время работы:<br />
+                                                                Monday — Thursday 10:00 &#8211; 23:00<br />
+                                                                Friday — Sunday 10:00 &#8211; 19:00
+                                                            </p>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="elementor-element elementor-element-54d2b293 elementor-shape-rounded elementor-widget elementor-widget-social-icons" data-id="54d2b293" data-element_type="widget" data-widget_type="social-icons.default">
                                                     <div class="elementor-widget-container">
                                                         <div class="elementor-social-icons-wrapper">
-                                                            <a class="elementor-icon elementor-social-icon elementor-social-icon-facebook" href="https://www.facebook.com/zemezlab/" target="_blank">
-                                                                <span class="elementor-screen-only">Facebook</span>
-                                                                <i class="fa fa-facebook"></i>
+                                                            <a class="elementor-icon elementor-social-icon elementor-social-icon-facebook" href="" target="_blank">
+                                                                <img src="img/WhatsApp.svg" height="40" width="40" />
                                                             </a>
-                                                            <a class="elementor-icon elementor-social-icon elementor-social-icon-twitter" href="https://twitter.com/zemezlab" target="_blank">
-                                                                <span class="elementor-screen-only">Twitter</span>
-                                                                <i class="fa fa-twitter"></i>
-                                                            </a>
-                                                            <a class="elementor-icon elementor-social-icon elementor-social-icon-google-plus" href="https://plus.google.com/" target="_blank">
-                                                                <span class="elementor-screen-only">Google-plus</span>
-                                                                <i class="fa fa-google-plus"></i>
-                                                            </a>
-                                                            <a class="elementor-icon elementor-social-icon elementor-social-icon-vimeo" href="https://vimeo.com/" target="_blank">
-                                                                <span class="elementor-screen-only">Vimeo</span>
-                                                                <i class="fa fa-vimeo"></i>
-                                                            </a>
-                                                            <a class="elementor-icon elementor-social-icon elementor-social-icon-youtube" href="https://www.youtube.com/channel/UCPW43un8VFXHe9LxKpR_2Hg" target="_blank">
-                                                                <span class="elementor-screen-only">Youtube</span>
-                                                                <i class="fa fa-youtube"></i>
-                                                            </a>
-                                                            <a class="elementor-icon elementor-social-icon elementor-social-icon-pinterest" href="https://www.pinterest.com/" target="_blank">
-                                                                <span class="elementor-screen-only">Pinterest</span>
-                                                                <i class="fa fa-pinterest"></i>
-                                                            </a>
+
+<!--                                                            <a class="elementor-icon elementor-social-icon elementor-social-icon-facebook" href="https://www.facebook.com/zemezlab/" target="_blank">-->
+<!--                                                                <span class="elementor-screen-only">Facebook</span>-->
+<!--                                                                <i class="fa fa-facebook"></i>-->
+<!--                                                            </a>-->
+<!--                                                            <a class="elementor-icon elementor-social-icon elementor-social-icon-twitter" href="https://twitter.com/zemezlab" target="_blank">-->
+<!--                                                                <span class="elementor-screen-only">Twitter</span>-->
+<!--                                                                <i class="fa fa-twitter"></i>-->
+<!--                                                            </a>-->
+<!--                                                            <a class="elementor-icon elementor-social-icon elementor-social-icon-google-plus" href="https://plus.google.com/" target="_blank">-->
+<!--                                                                <span class="elementor-screen-only">Google-plus</span>-->
+<!--                                                                <i class="fa fa-google-plus"></i>-->
+<!--                                                            </a>-->
+<!--                                                            <a class="elementor-icon elementor-social-icon elementor-social-icon-vimeo" href="https://vimeo.com/" target="_blank">-->
+<!--                                                                <span class="elementor-screen-only">Vimeo</span>-->
+<!--                                                                <i class="fa fa-vimeo"></i>-->
+<!--                                                            </a>-->
+<!--                                                            <a class="elementor-icon elementor-social-icon elementor-social-icon-youtube" href="https://www.youtube.com/channel/UCPW43un8VFXHe9LxKpR_2Hg" target="_blank">-->
+<!--                                                                <span class="elementor-screen-only">Youtube</span>-->
+<!--                                                                <i class="fa fa-youtube"></i>-->
+<!--                                                            </a>-->
+<!--                                                            <a class="elementor-icon elementor-social-icon elementor-social-icon-pinterest" href="https://www.pinterest.com/" target="_blank">-->
+<!--                                                                <span class="elementor-screen-only">Pinterest</span>-->
+<!--                                                                <i class="fa fa-pinterest"></i>-->
+<!--                                                            </a>-->
                                                         </div>
                                                     </div>
                                                 </div>
@@ -736,14 +939,39 @@
                                                                         <input type="hidden" name="_wpcf7_container_post" value="8" />
                                                                         <input type="hidden" name="g-recaptcha-response" value="" />
                                                                     </div>
-                                                                    <p><label><br />
-                                                                            <span class="wpcf7-form-control-wrap your-name"><input type="text" name="your-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Your Name" /></span> </label></p>
-                                                                    <p><label><br />
-                                                                            <span class="wpcf7-form-control-wrap your-email"><input type="email" name="your-email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Your E-mail" /></span> </label></p>
-                                                                    <p><label><br />
-                                                                            <span class="wpcf7-form-control-wrap your-message"><textarea name="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Your Message"></textarea></span> </label></p>
-                                                                    <p><input type="submit" value="Send" class="wpcf7-form-control wpcf7-submit" /></p>
-                                                                    <div class="wpcf7-response-output wpcf7-display-none"></div></form></div></div>
+                                                                    <p>
+                                                                        <label><br />
+                                                                            <span class="wpcf7-form-control-wrap your-name">
+                                                                                <input type="text" name="your-name" value="" size="40"
+                                                                                       class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true"
+                                                                                       aria-invalid="false" placeholder="Your Name" />
+                                                                            </span>
+                                                                        </label>
+                                                                    </p>
+                                                                    <p>
+                                                                        <label><br />
+                                                                            <span class="wpcf7-form-control-wrap your-email">
+                                                                                <input type="email" name="your-email" value="" size="40"
+                                                                                       class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email"
+                                                                                       aria-required="true" aria-invalid="false" placeholder="Your E-mail" />
+                                                                            </span>
+                                                                        </label>
+                                                                    </p>
+                                                                    <p>
+                                                                        <label><br />
+                                                                            <span class="wpcf7-form-control-wrap your-message">
+                                                                                <textarea name="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea"
+                                                                                          aria-invalid="false" placeholder="Your Message"></textarea>
+                                                                            </span>
+                                                                        </label>
+                                                                    </p>
+                                                                    <p>
+                                                                        <input type="submit" value="Отправить" class="wpcf7-form-control wpcf7-submit" />
+                                                                    </p>
+                                                                    <div class="wpcf7-response-output wpcf7-display-none"></div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -818,36 +1046,21 @@
     //     type: "inline"
     // });
 
-    // собираем все якоря; устанавливаем время анимации и количество кадров
-    const anchors = [].slice.call(document.querySelectorAll('a[href*="#"]')),
-        animationTime = 300,
-        framesCount = 20;
 
-    anchors.forEach(function(item) {
-        item.addEventListener('click', function(e) {
-            e.preventDefault();
+    //sticky menu
+    window.onscroll = function() {stick()};
+    var navbar = document.getElementById("masthead");
+    // Get the offset position of the navbar
+    var sticky = navbar.offsetTop;
 
-            // для каждого якоря берем соответствующий ему элемент и определяем его координату Y
-            let coordY = document.querySelector(item.getAttribute('href')).getBoundingClientRect().top + window.pageYOffset;
-
-            // запускаем интервал, в котором
-            let scroller = setInterval(function() {
-                // считаем на сколько скроллить за 1 такт
-                let scrollBy = coordY / framesCount;
-
-                // если к-во пикселей для скролла за 1 такт больше расстояния до элемента и дно страницы не достигнуто
-                if(scrollBy > window.pageYOffset - coordY && window.innerHeight + window.pageYOffset < document.body.offsetHeight) {
-                    // то скроллим на к-во пикселей, которое соответствует одному такту
-                    window.scrollBy(0, scrollBy);
-                } else {
-                    // иначе добираемся до элемента и выходим из интервала
-                    window.scrollTo(0, coordY);
-                    clearInterval(scroller);
-                }
-                // время интервала равняется частному от времени анимации и к-ва кадров
-            }, animationTime / framesCount);
-        });
-    });
+    // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+    function stick() {
+        if (window.pageYOffset > sticky) {
+            navbar.classList.add("sticky")
+        } else {
+            navbar.classList.remove("sticky");
+        }
+    }
 </script>
 <script type='text/javascript'>
     /* <![CDATA[ */
