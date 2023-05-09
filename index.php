@@ -1,3 +1,53 @@
+<?php
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+require 'vendor/autoload.php';
+
+require 'config.php';
+
+$mail = new PHPMailer(true);
+
+try {
+    //Server settings
+//    $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+    $mail->isSMTP();
+    $mail->Host       = SMTP_HOST;
+    $mail->SMTPAuth   = true;
+    $mail->Username   = SMTP_USER;
+    $mail->Password   = SMTP_PASSWORD;
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+    $mail->Port       = SMTP_PORT;
+
+    //Recipients
+    $mail->setFrom(SMTP_FROM_DEFAULT, 'Mailer');
+    $mail->addAddress('5905@lst.gr', 'Joe User');
+//    $mail->addAddress('ellen@example.com');               //Name is optional
+    $mail->addReplyTo(SMTP_FROM_DEFAULT, 'Information');
+//    $mail->addCC('cc@example.com');
+//    $mail->addBCC('bcc@example.com');
+
+    //Attachments
+//    $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
+//    $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
+
+    //Content
+    $mail->isHTML(true);
+    $mail->Subject = 'Here is the subject';
+    $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+//    $mail->send();
+//    echo 'Message has been sent';
+} catch (Exception $e) {
+    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+}
+
+//echo 'ok';
+
+?>
 
 <!DOCTYPE html>
 <html lang="en-US">
@@ -738,7 +788,10 @@
                                                     <div class="elementor-container elementor-column-gap-default">
                                                         <div class="elementor-row">
                                                             <div class="elementor-widget-container">
-                                                                <p>Мы сотрудничаем с большим количеством предприятий строительной отрасли, среди которых такие крупные компании, как:</p>
+                                                                <p>Среди наших партнеров – и небольшие организации, и крупнейшие компании-застройщики Москвы и Московской области,
+                                                                    производственные и эксплуатирующие организации в том числе федерального уровня.
+                                                                    Мы заинтересованы в каждом нашем заказчике, поэтому постоянно совершенствуемся, работаем над ассортиментом и ценообразованием.
+                                                                    Мы успешно сотрудничали с такими компаниями, как:</p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -888,7 +941,8 @@
                                                 <div class="elementor-element elementor-element-54d2b293 elementor-shape-rounded elementor-widget elementor-widget-social-icons" data-id="54d2b293" data-element_type="widget" data-widget_type="social-icons.default">
                                                     <div class="elementor-widget-container">
                                                         <div class="elementor-social-icons-wrapper">
-                                                            <a class="elementor-icon elementor-social-icon elementor-social-icon-facebook" href="" target="_blank">
+                                                            <a class="elementor-icon elementor-social-icon elementor-social-icon-facebook"
+                                                               href="https://api.whatsapp.com/send?phone=79153477071" target="_blank">
                                                                 <img src="img/WhatsApp.svg" height="40" width="40" />
                                                             </a>
 
@@ -930,15 +984,7 @@
                                                         <div class="elementor-shortcode">
                                                             <div role="form" class="wpcf7" id="wpcf7-f5-p8-o1" lang="en-US" dir="ltr">
                                                                 <div class="screen-reader-response"></div>
-                                                                <form action="/wordpress_free/23520/#wpcf7-f5-p8-o1" method="post" class="wpcf7-form" novalidate="novalidate">
-                                                                    <div style="display: none;">
-                                                                        <input type="hidden" name="_wpcf7" value="5" />
-                                                                        <input type="hidden" name="_wpcf7_version" value="5.1.1" />
-                                                                        <input type="hidden" name="_wpcf7_locale" value="en_US" />
-                                                                        <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f5-p8-o1" />
-                                                                        <input type="hidden" name="_wpcf7_container_post" value="8" />
-                                                                        <input type="hidden" name="g-recaptcha-response" value="" />
-                                                                    </div>
+                                                                <form action="/" method="post" class="wpcf7-form" novalidate="novalidate">
                                                                     <p>
                                                                         <label><br />
                                                                             <span class="wpcf7-form-control-wrap your-name">
@@ -1084,52 +1130,3 @@
 
 </body>
 </html>
-
-<?php
-
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
-
-require 'vendor/autoload.php';
-
-require 'config.php';
-
-$mail = new PHPMailer(true);
-
-try {
-    //Server settings
-//    $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
-    $mail->isSMTP();
-    $mail->Host       = SMTP_HOST;
-    $mail->SMTPAuth   = true;
-    $mail->Username   = SMTP_USER;
-    $mail->Password   = SMTP_PASSWORD;
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-    $mail->Port       = SMTP_PORT;
-
-    //Recipients
-    $mail->setFrom(SMTP_FROM_DEFAULT, 'Mailer');
-    $mail->addAddress('5905@lst.gr', 'Joe User');
-//    $mail->addAddress('ellen@example.com');               //Name is optional
-    $mail->addReplyTo(SMTP_FROM_DEFAULT, 'Information');
-//    $mail->addCC('cc@example.com');
-//    $mail->addBCC('bcc@example.com');
-
-    //Attachments
-//    $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
-//    $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
-
-    //Content
-    $mail->isHTML(true);
-    $mail->Subject = 'Here is the subject';
-    $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
-    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-
-//    $mail->send();
-//    echo 'Message has been sent';
-} catch (Exception $e) {
-    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-}
-
-//echo 'ok';
