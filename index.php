@@ -1,52 +1,15 @@
 <?php
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
+use Builov\Vertolet\Form;
 
 require 'vendor/autoload.php';
-
 require 'config.php';
 
-$mail = new PHPMailer(true);
+$form = new Form();
 
-try {
-    //Server settings
-//    $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
-    $mail->isSMTP();
-    $mail->Host       = SMTP_HOST;
-    $mail->SMTPAuth   = true;
-    $mail->Username   = SMTP_USER;
-    $mail->Password   = SMTP_PASSWORD;
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-    $mail->Port       = SMTP_PORT;
-
-    //Recipients
-    $mail->setFrom(SMTP_FROM_DEFAULT, 'Mailer');
-    $mail->addAddress('5905@lst.gr', 'Joe User');
-//    $mail->addAddress('ellen@example.com');               //Name is optional
-    $mail->addReplyTo(SMTP_FROM_DEFAULT, 'Information');
-//    $mail->addCC('cc@example.com');
-//    $mail->addBCC('bcc@example.com');
-
-    //Attachments
-//    $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
-//    $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
-
-    //Content
-    $mail->isHTML(true);
-    $mail->Subject = 'Here is the subject';
-    $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
-    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-
-//    $mail->send();
-//    echo 'Message has been sent';
-} catch (Exception $e) {
-    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+if (!empty($_POST)) {
+    $form->process();
 }
-
-//echo 'ok';
-
 ?>
 
 <!DOCTYPE html>
@@ -489,10 +452,23 @@ try {
 
                                     <!-- advantages -->
 
+                                    <style>
+                                        .elementor-8 .elementor-element.elementor-element-49d33cb3 {
+                                            color: #ffffff;
+                                            font-family: "Montserrat", Sans-serif;
+                                            font-size: 16px;
+                                            font-weight: 300;
+                                            line-height: 2.143em;
+                                        }
+                                        img.brand-logo {
+                                            margin:0 40px 40px 0;
+                                        }
+                                    </style>
 
                                     <div class="elementor-element elementor-element-80bcbe7 elementor-column elementor-col-50 elementor-top-column" data-id="80bcbe7" data-element_type="column">
                                         <div class="elementor-column-wrap  elementor-element-populated">
                                             <div class="elementor-widget-wrap">
+
                                                 <div class="elementor-element elementor-element-7d0b3c7b elementor-widget elementor-widget-spacer" data-id="7d0b3c7b" data-element_type="widget" data-widget_type="spacer.default">
                                                     <div class="elementor-widget-container">
                                                         <div class="elementor-spacer">
@@ -502,41 +478,49 @@ try {
                                                 </div>
                                                 <div class="elementor-element elementor-element-6edb5ed7 elementor-invisible elementor-widget elementor-widget-heading" data-id="6edb5ed7" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInRight&quot;}" data-widget_type="heading.default">
                                                     <div class="elementor-widget-container">
-                                                        <h5 class="elementor-heading-title elementor-size-default">advantages</h5>		</div>
+                                                        <h5 class="elementor-heading-title elementor-size-default">Бренды</h5>		</div>
                                                 </div>
-                                                <div class="elementor-element elementor-element-759009da elementor-invisible elementor-widget elementor-widget-heading" data-id="759009da" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInLeft&quot;}" data-widget_type="heading.default">
-                                                    <div class="elementor-widget-container">
-                                                        <h2 class="elementor-heading-title elementor-size-default">Working On <br>
-                                                            Exclusive Projects</h2>		</div>
-                                                </div>
-                                                <div class="elementor-element elementor-element-545790df animated-slow elementor-invisible elementor-widget elementor-widget-divider" data-id="545790df" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInRight&quot;}" data-widget_type="divider.default">
-                                                    <div class="elementor-widget-container">
-                                                        <div class="elementor-divider">
-                                                            <span class="elementor-divider-separator"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
+<!--                                                <div class="elementor-element elementor-element-759009da elementor-invisible elementor-widget elementor-widget-heading" data-id="759009da" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInLeft&quot;}" data-widget_type="heading.default">-->
+<!--                                                    <div class="elementor-widget-container">-->
+<!--                                                        <h2 class="elementor-heading-title elementor-size-default">Working On <br>-->
+<!--                                                            Exclusive Projects</h2>		</div>-->
+<!--                                                </div>-->
+<!--                                                <div class="elementor-element elementor-element-545790df animated-slow elementor-invisible elementor-widget elementor-widget-divider" data-id="545790df" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInRight&quot;}" data-widget_type="divider.default">-->
+<!--                                                    <div class="elementor-widget-container">-->
+<!--                                                        <div class="elementor-divider">-->
+<!--                                                            <span class="elementor-divider-separator"></span>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
                                                 <div class="elementor-element elementor-element-49d33cb3 elementor-widget elementor-widget-text-editor" data-id="49d33cb3" data-element_type="widget" data-widget_type="text-editor.default">
                                                     <div class="elementor-widget-container">
                                                         <div class="elementor-text-editor elementor-clearfix">
-                                                            <p>Designing sustainable, high-performance buildings requires an
-                                                                integration of architectural and engineered systems into a balanced
-                                                                design of sustainability and cost-effectiveness. Archus merges these
-                                                                practices with the unique requirements and guidelines necessary for
-                                                                advanced technology facilities.
+                                                            <p>Мы поставляем продукцию только проверенных брендов,
+                                                                доказавших качество своих инструментов многолетним опытом эксплуатации.
                                                             </p>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="elementor-element elementor-element-694ed43b elementor-widget elementor-widget-button" data-id="694ed43b" data-element_type="widget" data-widget_type="button.default">
                                                     <div class="elementor-widget-container">
-                                                        <div class="elementor-button-wrapper">
-                                                            <a href="https://ld-wp.template-help.com/wordpress_free/23520/about/" class="elementor-button-link elementor-button elementor-size-sm" role="button">
-						<span class="elementor-button-content-wrapper">
-						<span class="elementor-button-text">view more</span>
-		</span>
-                                                            </a>
-                                                        </div>
+
+                                                        <img class="brand-logo" src="img/brands/zubr.png" style="padding: 12px 25px; background-color: #c20000;" />
+                                                        <img class="brand-logo" src="img/brands/sibin.gif" style="width: 232px;" />
+                                                        <img class="brand-logo" src="img/brands/stayer1.png" style="width: 250px;" />
+                                                        <img class="brand-logo" src="img/brands/kraftool.png" style="width: 270px; background-color: #106664; padding: 15px;" />
+                                                        <img class="brand-logo" src="img/brands/matrix.png" style="padding-bottom: 14px;" />
+                                                        <img class="brand-logo" src="img/brands/steher.png" />
+                                                        <img class="brand-logo" src="img/brands/grinda.png" style="padding: 0 20px 20px 0;" />
+                                                        <img class="brand-logo" src="img/brands/hilberg.jpg" style="width: 230px;" />
+                                                        <img class="brand-logo" src="img/brands/Trio_Diamond_logo-basement-1.png" style="width: 230px; margin-top: -20px;" />
+
+<!--                                                        <div class="elementor-button-wrapper">-->
+<!--                                                            <a href="" class="elementor-button-link elementor-button elementor-size-sm" role="button">-->
+<!--                                                                <span class="elementor-button-content-wrapper">-->
+<!--                                                                    <span class="elementor-button-text">view more</span>-->
+<!--                                                                </span>-->
+<!--                                                            </a>-->
+<!--                                                        </div>-->
                                                     </div>
                                                 </div>
 
@@ -560,7 +544,6 @@ try {
                                             font-style: normal;
                                         }
                                     </style>
-
 
                                     <div class="elementor-element elementor-element-5d7a8a3a elementor-column elementor-col-50 elementor-top-column" data-id="5d7a8a3a" data-element_type="column">
                                         <div class="elementor-column-wrap  elementor-element-populated">
@@ -984,7 +967,11 @@ try {
                                                         <div class="elementor-shortcode">
                                                             <div role="form" class="wpcf7" id="wpcf7-f5-p8-o1" lang="en-US" dir="ltr">
                                                                 <div class="screen-reader-response"></div>
-                                                                <form action="/" method="post" class="wpcf7-form" novalidate="novalidate">
+
+                                                <!-- FORM -->
+
+                                                                <form enctype="multipart/form-data" action="/" method="post" class="wpcf7-form" novalidate="novalidate">
+                                                                    <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
                                                                     <p>
                                                                         <label><br />
                                                                             <span class="wpcf7-form-control-wrap your-name">
@@ -1012,10 +999,14 @@ try {
                                                                         </label>
                                                                     </p>
                                                                     <p>
+                                                                        <input name="attachment" type="file" />
+                                                                    </p>
+                                                                    <p>
                                                                         <input type="submit" value="Отправить" class="wpcf7-form-control wpcf7-submit" />
                                                                     </p>
                                                                     <div class="wpcf7-response-output wpcf7-display-none"></div>
                                                                 </form>
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1059,7 +1050,6 @@ try {
 
 
 
-
     <style>
         footer#colophon {
             background-color: #3b3d42;
@@ -1092,14 +1082,12 @@ try {
     //     type: "inline"
     // });
 
-
     //sticky menu
     window.onscroll = function() {stick()};
+
     var navbar = document.getElementById("masthead");
-    // Get the offset position of the navbar
     var sticky = navbar.offsetTop;
 
-    // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
     function stick() {
         if (window.pageYOffset > sticky) {
             navbar.classList.add("sticky")
@@ -1108,11 +1096,11 @@ try {
         }
     }
 </script>
-<script type='text/javascript'>
-    /* <![CDATA[ */
-    var wpcf7 = {"apiSettings":{"root":"https:\/\/ld-wp.template-help.com\/wordpress_free\/23520\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"}};
-    /* ]]> */
-</script>
+<!--<script type='text/javascript'>-->
+<!--    /* <![CDATA[ */-->
+<!--    var wpcf7 = {"apiSettings":{"root":"https:\/\/ld-wp.template-help.com\/wordpress_free\/23520\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"}};-->
+<!--    /* ]]> */-->
+<!--</script>-->
 <script type='text/javascript' src='js/scripts.js?ver=5.1.1'></script>
 <script type='text/javascript' src='js/responsive-menu.js?ver=1.0.0'></script>
 <script type='text/javascript' src='js/jquery.ui.totop.min.js?ver=1.2.0'></script>
