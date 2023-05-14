@@ -8,10 +8,10 @@ use PHPMailer\PHPMailer\Exception;
 
 class Emailer
 {
-    private string $subject;
-    private string $body;
-    private string $altBody;
-    private string $attachment;
+    private $subject;
+    private $body;
+    private $altBody;
+    private $attachment;
 
     public function setSubject($str)
     {

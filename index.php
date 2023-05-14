@@ -133,6 +133,54 @@ if (!empty($_POST)) {
         .sticky .site-branding img {
             display: none;
         }
+        .contact-navigation a.icon img {
+            top: 3px;
+            position: relative;
+        }
+        .contact-navigation {
+            /*font-style: normal;*/
+            /*font-weight: 400;*/
+            /*font-size: 14px;*/
+            /*line-height: 1.4;*/
+            /*font-family: Roboto, sans-serif;*/
+            /*letter-spacing: 0px;*/
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        header#masthead div.contact-navigation-inner {
+            background-color: transparent;
+        }
+        .contact-navigation ul {
+            list-style: none;
+            margin: 0;
+            padding-left: 0;
+        }
+        .contact-navigation .menu > li:first-child {
+            margin-left: 0;
+        }
+        .contact-navigation .menu > li {
+            padding: 3px 3px 2px;
+            margin-left: 10px;
+        }
+        .contact-navigation li {
+            position: relative;
+            display: block;
+        }
+        .contact-navigation .menu-item a {
+            color: #fff !important;
+            text-transform: none;
+            font-size: 14px;
+            /*line-height: 15px;*/
+            font-weight: 400;
+            letter-spacing: 1.2px;
+        }
+        .contact-navigation a {
+            display: inline-block;
+            text-decoration: none;
+        }
     </style>
 
     <header id="masthead" class="site-header ">
@@ -143,6 +191,23 @@ if (!empty($_POST)) {
                     <a href="/" rel="home"><img src="img/logo3.png" class="logo" alt=""></a>
                     <a href="/" rel="home" class="text">VERTOLЁT</a>
                 </div>
+
+                <nav class="contact-navigation">
+                    <div class="contact-navigation-inner">
+                        <ul class="top-menu">
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                <a href="mailto:vertolet.msk@mail.ru" aria-current="page">vertolet.msk@mail.ru</a>
+                            </li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                <a href="tel:+7495271005">+7 495 271-00-5</a>
+                            </li>
+                            <li><a class="icon"
+                               href="https://api.whatsapp.com/send?phone=79153477071" target="_blank"><img src="img/WhatsApp.svg" height="20" width="20" />
+                            </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
 
                 <nav id="site-navigation" class="main-navigation" role="navigation">
                     <div class="main-navigation-inner">
@@ -333,7 +398,7 @@ if (!empty($_POST)) {
                                                 <div class="elementor-element elementor-element-4e8da247 elementor-widget elementor-widget-text-editor" data-id="10623144" data-element_type="widget" data-widget_type="text-editor.default">
                                                     <div class="elementor-widget-container">
                                                         <div class="elementor-text-editor elementor-clearfix">
-                                                            <p>Несмотря на относительную молодость, компания «Вертолёт» занимает прочные позиции на рынке
+                                                            <p>Несмотря на относительную молодость, компания «ВЕРТОЛЁТ» занимает прочные позиции на рынке
                                                                 поставок строительного оборудования. Благодаря знанию специфики отрасли,
                                                                 гибкой ценовой политике, особому вниманию к качеству поставляемых товаров и
                                                                 оперативному выполнению заказов, компания пользуется заслуженным уважением у
@@ -478,7 +543,8 @@ if (!empty($_POST)) {
                                                 </div>
                                                 <div class="elementor-element elementor-element-6edb5ed7 elementor-invisible elementor-widget elementor-widget-heading" data-id="6edb5ed7" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInRight&quot;}" data-widget_type="heading.default">
                                                     <div class="elementor-widget-container">
-                                                        <h5 class="elementor-heading-title elementor-size-default">Бренды</h5>		</div>
+                                                        <h5 class="elementor-heading-title elementor-size-default">Инструменты и расходные материалы</h5>
+                                                    </div>
                                                 </div>
 <!--                                                <div class="elementor-element elementor-element-759009da elementor-invisible elementor-widget elementor-widget-heading" data-id="759009da" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInLeft&quot;}" data-widget_type="heading.default">-->
 <!--                                                    <div class="elementor-widget-container">-->
@@ -684,22 +750,42 @@ if (!empty($_POST)) {
                                                                     <img width="600" height="616" src="img/catalog/pilo.webp" />
                                                                     <h5>Пиломатериалы</h5>
                                                                 </figure><figure class='gallery-item'>
-                                                                    <img width="600" height="616" src="img/catalog/zapor.webp" />
-                                                                    <h5>Запорная арматура и электроприводы</h5>
-                                                                </figure><figure class='gallery-item'>
-                                                                    <img width="600" height="616" src="img/catalog/stroy.webp" />
-                                                                    <h5>Стройматериалы</h5>
-                                                                </figure><figure class='gallery-item'>
-                                                                    <img width="600" height="616" src="img/catalog/trub.webp" />
-                                                                    <h5>Трубы и фитинги</h5>
-                                                                </figure><figure class='gallery-item'>
                                                                     <img width="600" height="616" src="img/catalog/santeh.webp" />
                                                                     <h5>Сантехника</h5>
                                                                 </figure><figure class='gallery-item'>
                                                                     <img width="600" height="616" src="img/catalog/radiat.webp" />
                                                                     <h5>Радиаторы отопления (батареи) </h5>
+                                                                </figure><figure class='gallery-item'>
+                                                                    <img width="600" height="616" src="img/catalog/stroy.webp" />
+                                                                    <h5>Стройматериалы</h5>
+                                                                </figure><figure class='gallery-item'>
+                                                                    <img width="600" height="616" src="img/catalog/baki.webp" />
+                                                                    <h5>Баки и емкости</h5>
+                                                                </figure><figure class='gallery-item'>
+                                                                    <img width="600" height="616" src="img/catalog/teplo.webp" />
+                                                                    <h5>Теплоизоляция, уплотнения, защитные покрытия</h5>
+                                                                </figure><figure class='gallery-item'>
+                                                                    <img width="600" height="616" src="img/catalog/pozhar.webp" />
+                                                                    <h5>Пожарное оборудование</h5>
+                                                                </figure><figure class='gallery-item'>
+                                                                    <img width="600" height="616" src="img/catalog/elektr.webp" />
+                                                                    <h5>Электрика</h5>
+                                                                </figure><figure class='gallery-item'>
+                                                                    <img width="600" height="616" src="img/catalog/topor.webp" />
+                                                                    <h5>Строительный инструмент</h5>
+                                                                </figure><figure class='gallery-item'>
+                                                                    <img width="600" height="616" src="img/catalog/krep.webp" />
+                                                                    <h5>Крепежные системы</h5>
+                                                                </figure><figure class='gallery-item'>
+                                                                    <img width="600" height="616" src="img/catalog/pena.webp" />
+                                                                    <h5>Пены герметики, строительная химия</h5>
+                                                                </figure><figure class='gallery-item'>
+                                                                    <img width="600" height="616" src="img/catalog/krovat.webp" />
+                                                                    <h5>Металлические кровати</h5>
+                                                                </figure><figure class='gallery-item'>
+                                                                    <img width="600" height="616" src="img/catalog/tara.webp" />
+                                                                    <h5>Тара</h5>
                                                                 </figure>
-
                                                             </div>
                                                         </div>
                                                     </div>
@@ -732,6 +818,9 @@ if (!empty($_POST)) {
                         <style>
                             .elementor-element-7c27a44a .elementor-widget-container {
                                 margin: 0px 0px 30px 0px;
+                            }
+                            .elementor-8 .elementor-element.elementor-element-5fdd8755 .elementor-image {
+                                padding: 20px;
                             }
                         </style>
 
@@ -774,7 +863,7 @@ if (!empty($_POST)) {
                                                                 <p>Среди наших партнеров – и небольшие организации, и крупнейшие компании-застройщики Москвы и Московской области,
                                                                     производственные и эксплуатирующие организации в том числе федерального уровня.
                                                                     Мы заинтересованы в каждом нашем заказчике, поэтому постоянно совершенствуемся, работаем над ассортиментом и ценообразованием.
-                                                                    Мы успешно сотрудничали с такими компаниями, как:</p>
+                                                                    Мы успешно сотрудничаем с такими компаниями, как:</p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -789,7 +878,7 @@ if (!empty($_POST)) {
                                                                         <div class="elementor-element elementor-element-38abf7fb elementor-widget elementor-widget-image" data-id="38abf7fb" data-element_type="widget" data-widget_type="image.default">
                                                                             <div class="elementor-widget-container">
                                                                                 <div class="elementor-image">
-                                                                                    <img width="135" height="102" src="img/pik.svg" class="attachment-full size-full" alt="" />											</div>
+                                                                                    <img src="img/pik.svg" class="attachment-full size-full" alt="" />											</div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -801,7 +890,7 @@ if (!empty($_POST)) {
                                                                         <div class="elementor-element elementor-element-63bd0f73 elementor-widget elementor-widget-image" data-id="63bd0f73" data-element_type="widget" data-widget_type="image.default">
                                                                             <div class="elementor-widget-container">
                                                                                 <div class="elementor-image">
-                                                                                    <img width="144" height="73" src="img/Russian_Railways_logo.svg" class="attachment-full size-full" alt="" />											</div>
+                                                                                    <img src="img/Russian_Railways_logo.svg" class="attachment-full size-full" alt="" />											</div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -813,7 +902,91 @@ if (!empty($_POST)) {
                                                                         <div class="elementor-element elementor-element-696e50b9 elementor-widget elementor-widget-image" data-id="696e50b9" data-element_type="widget" data-widget_type="image.default">
                                                                             <div class="elementor-widget-container">
                                                                                 <div class="elementor-image">
-                                                                                    <img width="160" height="76" src="img/smlt_logo_blue_ru.svg" class="attachment-full size-full" alt="" />											</div>
+                                                                                    <img src="img/smlt_logo_blue_ru.svg" class="attachment-full size-full" alt="" />											</div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="elementor-container elementor-column-gap-default">
+                                                        <div class="elementor-row">
+                                                            <div class="elementor-element elementor-element-1a572cb9 elementor-column elementor-col-33 elementor-inner-column" data-id="1a572cb9" data-element_type="column">
+                                                                <div class="elementor-column-wrap  elementor-element-populated">
+                                                                    <div class="elementor-widget-wrap">
+                                                                        <div class="elementor-element elementor-element-696e50b9 elementor-widget elementor-widget-image" data-id="696e50b9" data-element_type="widget" data-widget_type="image.default">
+                                                                            <div class="elementor-widget-container">
+                                                                                <div class="elementor-image">
+                                                                                    <img src="img/domodedovo.svg" class="attachment-full size-full" alt="" />											</div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="elementor-element elementor-element-1a572cb9 elementor-column elementor-col-33 elementor-inner-column" data-id="1a572cb9" data-element_type="column">
+                                                                <div class="elementor-column-wrap  elementor-element-populated">
+                                                                    <div class="elementor-widget-wrap">
+                                                                        <div class="elementor-element elementor-element-696e50b9 elementor-widget elementor-widget-image" data-id="696e50b9" data-element_type="widget" data-widget_type="image.default">
+                                                                            <div class="elementor-widget-container">
+                                                                                <div class="elementor-image">
+                                                                                    <img src="img/mosenergo.png" class="attachment-full size-full" alt="" />											</div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="elementor-element elementor-element-1a572cb9 elementor-column elementor-col-33 elementor-inner-column" data-id="1a572cb9" data-element_type="column">
+                                                                <div class="elementor-column-wrap  elementor-element-populated">
+                                                                    <div class="elementor-widget-wrap">
+                                                                        <div class="elementor-element elementor-element-696e50b9 elementor-widget elementor-widget-image" data-id="696e50b9" data-element_type="widget" data-widget_type="image.default">
+                                                                            <div class="elementor-widget-container">
+                                                                                <div class="elementor-image">
+                                                                                    <img src="img/mosmetrostroy.png" class="attachment-full size-full" alt="" />											</div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="elementor-container elementor-column-gap-default">
+                                                        <div class="elementor-row">
+                                                            <div class="elementor-element elementor-element-1a572cb9 elementor-column elementor-col-33 elementor-inner-column" data-id="1a572cb9" data-element_type="column">
+                                                                <div class="elementor-column-wrap  elementor-element-populated">
+                                                                    <div class="elementor-widget-wrap">
+                                                                        <div class="elementor-element elementor-element-696e50b9 elementor-widget elementor-widget-image" data-id="696e50b9" data-element_type="widget" data-widget_type="image.default">
+                                                                            <div class="elementor-widget-container">
+                                                                                <div class="elementor-image">
+                                                                                    <img src="img/razvitie_development.png" class="attachment-full size-full" alt="" />											</div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="elementor-element elementor-element-1a572cb9 elementor-column elementor-col-33 elementor-inner-column" data-id="1a572cb9" data-element_type="column">
+                                                                <div class="elementor-column-wrap  elementor-element-populated">
+                                                                    <div class="elementor-widget-wrap">
+                                                                        <div class="elementor-element elementor-element-696e50b9 elementor-widget elementor-widget-image" data-id="696e50b9" data-element_type="widget" data-widget_type="image.default">
+                                                                            <div class="elementor-widget-container">
+                                                                                <div class="elementor-image">
+                                                                                    <img src="img/restavracia_n.png" class="attachment-full size-full" alt="" />											</div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="elementor-element elementor-element-1a572cb9 elementor-column elementor-col-33 elementor-inner-column" data-id="1a572cb9" data-element_type="column">
+                                                                <div class="elementor-column-wrap  elementor-element-populated">
+                                                                    <div class="elementor-widget-wrap">
+                                                                        <div class="elementor-element elementor-element-696e50b9 elementor-widget elementor-widget-image" data-id="696e50b9" data-element_type="widget" data-widget_type="image.default">
+                                                                            <div class="elementor-widget-container">
+                                                                                <div class="elementor-image">
+                                                                                    <img src="img/stroymontazh.png" class="attachment-full size-full" alt="" />											</div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -911,12 +1084,17 @@ if (!empty($_POST)) {
                                                 <div class="elementor-element elementor-element-276ee3be elementor-widget elementor-widget-text-editor" data-id="276ee3be" data-element_type="widget" data-widget_type="text-editor.default">
                                                     <div class="elementor-widget-container">
                                                         <div class="elementor-text-editor elementor-clearfix">
-                                                            <p>Телефон: <a href="tel:+5551234567">(555)123-4567</a><br />
-                                                                E-mail: <a href="mailto:info@demolink.org">info@demolink.org</a><br />
-                                                                Адрес: Alexandria, 32 Washingtorn str, 22303<br />
-                                                                Время работы:<br />
-                                                                Monday — Thursday 10:00 &#8211; 23:00<br />
-                                                                Friday — Sunday 10:00 &#8211; 19:00
+                                                            <p>ООО &laquo;ВЕРТОЛЁТ&raquo;<br />
+                                                                Телефон: <a href="tel:+7495271005">+7 495 271-00-5</a><br />
+                                                                E-mail: <a href="mailto:vertolet.msk@mail.ru">vertolet.msk@mail.ru</a><br />
+                                                                Адрес:<br />МО, г.&nbsp;Балашиха, ул.&nbsp;Добросельская, д.&nbsp;10, пом.&nbsp;18<br />
+                                                                ИНН: 5001145992<br />
+                                                                ОГРН: 1225000065289<br />
+                                                                КПП: 500101001<br />
+                                                                Генеральный&nbsp;директор: Долгалёв&nbsp;Ю.&nbsp;А.<br />
+<!--                                                                Время работы:<br />-->
+<!--                                                                Monday — Thursday 10:00 &#8211; 23:00<br />-->
+<!--                                                                Friday — Sunday 10:00 &#8211; 19:00-->
                                                             </p>
                                                         </div>
                                                     </div>

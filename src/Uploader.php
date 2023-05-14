@@ -4,7 +4,7 @@ namespace Builov\Vertolet;
 
 class Uploader
 {
-    private string $uploaddir;
+    private $uploaddir;
 
     public function __construct()
     {
