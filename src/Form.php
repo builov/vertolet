@@ -4,7 +4,7 @@ namespace Builov\Vertolet;
 
 class Form
 {
-    private array $fields = [
+    private $fields = [
         'your-name' => 'string',
         'your-email' => 'email',
         'your-message' => 'text',
