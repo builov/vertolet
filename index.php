@@ -1,15 +1,31 @@
 <?php
 
-use Builov\Vertolet\Form;
+//todo:
+// fluent interface
+// проверить на magic values
+// VO
+// DRY, KISS, YAGNI
+// параметры и возвраты функций
+// исключения
+// I: Emailer, Uploader
+// App: Form
+
+use Builov\Vertolet\Emailer;
+use Builov\Vertolet\Uploader;
+use Builov\Vertolet\CustomerRequestForm;
 
 require 'vendor/autoload.php';
 require 'config.php';
 
-$form = new Form();
+$emailer = new Emailer();
+$uploader = new Uploader();
+$form = new CustomerRequestForm($emailer, $uploader);
 
 if (!empty($_POST)) {
     $form->process();
 }
+
+$htmlform = $form->generate();
 ?>
 
 <!DOCTYPE html>
@@ -28,6 +44,7 @@ if (!empty($_POST)) {
     <!--	<link rel='stylesheet' id='font-awesome-css'  href='https://ld-wp.template-help.com/wordpress_free/23520/wp-content/plugins/elementor/assets/lib/font-awesome/css/font-awesome.min.css?ver=4.7.0' type='text/css' media='all' />-->
 
     <link rel='stylesheet' href='css/fonts.css?ver=1.0.0' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/all.css' type='text/css' media='all' />
     <link rel='stylesheet' id='worky-theme-style-css'  href='css/workylite/style.css' type='text/css' media='all' />
     <link rel='stylesheet' id='worky-theme-style-inline-css'  href='css/worky-theme-style-inline.css' type='text/css' />
 
@@ -136,6 +153,7 @@ if (!empty($_POST)) {
         .contact-navigation a.icon img {
             top: 3px;
             position: relative;
+            margin-right: 10px;
         }
         .contact-navigation {
             /*font-style: normal;*/
@@ -181,6 +199,7 @@ if (!empty($_POST)) {
         .contact-navigation a {
             display: inline-block;
             text-decoration: none;
+            color: #ffffff;
         }
         @media(min-width:640px) {
             .contact-navigation {
@@ -230,14 +249,25 @@ if (!empty($_POST)) {
                                 </a>
                             </li>
                             <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                                <a href="tel:+7495271005">
+                                <a href="tel:+74951271005">
                                     <i class="fa fa-phone" aria-hidden="true"></i>
-                                    <span class="desktop-only">+7 495 271-00-5</span>
+                                    <span class="desktop-only">+7 495 127-10-05</span>
                                 </a>
                             </li>
                             <li>
                                 <a class="icon" href="https://api.whatsapp.com/send?phone=79153477071" target="_blank">
-                                    <img src="img/WhatsApp.svg" height="20" width="20" />
+<!--                                    <img src="img/WhatsApp.svg" height="30" width="30" />-->
+                                    <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                </a>
+
+                                <a class="icon" href="https://t.me/VsemLezhat" target="_blank">
+<!--                                    <img src="img/Telegram.svg" height="27" width="27" />-->
+                                    <i class="fa fa-telegram" aria-hidden="true"></i>
+                                </a>
+
+                                <a class="icon" href="viber://chat?number=%2B79153477071" target="_blank">
+<!--                                    <img src="img/Viber2.svg" height="26" width="26" />-->
+                                    <i class="fa fa-brands fa-viber"></i>
                                 </a>
                             </li>
                         </ul>
@@ -447,7 +477,7 @@ if (!empty($_POST)) {
                                                             <p>Наши преимущества:</p>
                                                             <ul class="check">
                                                                 <li>гибкие условия сотрудничества</li>
-                                                                <li>ценообразование, низкие цены благодаря прямым договорам с производимтельями</li>
+                                                                <li>ценообразование, низкие цены благодаря прямым договорам с производителями</li>
                                                                 <li>оперативная доставка</li>
                                                             </ul>
                                                         </div>
@@ -613,7 +643,7 @@ if (!empty($_POST)) {
                                                         <img class="brand-logo" src="img/brands/steher.png" />
                                                         <img class="brand-logo" src="img/brands/grinda.png" style="padding: 0 20px 20px 0;" />
                                                         <img class="brand-logo" src="img/brands/hilberg.jpg" style="width: 230px;" />
-                                                        <img class="brand-logo" src="img/brands/Trio_Diamond_logo-basement-1.png" style="width: 230px; margin-top: -20px;" />
+<!--                                                        <img class="brand-logo" src="img/brands/Trio_Diamond_logo-basement-1.png" style="width: 230px; margin-top: -20px;" />-->
 
 <!--                                                        <div class="elementor-button-wrapper">-->
 <!--                                                            <a href="" class="elementor-button-link elementor-button elementor-size-sm" role="button">-->
@@ -826,10 +856,11 @@ if (!empty($_POST)) {
                                                                 </figure><figure class='gallery-item'>
                                                                     <img width="600" height="616" src="img/catalog/krovat.webp" />
                                                                     <h5>Металлические кровати</h5>
-                                                                </figure><figure class='gallery-item'>
-                                                                    <img width="600" height="616" src="img/catalog/tara.webp" />
-                                                                    <h5>Тара</h5>
                                                                 </figure>
+<!--                                                                <figure class='gallery-item'>-->
+<!--                                                                    <img width="600" height="616" src="img/catalog/tara.webp" />-->
+<!--                                                                    <h5>Тара</h5>-->
+<!--                                                                </figure>-->
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1129,7 +1160,7 @@ if (!empty($_POST)) {
                                                     <div class="elementor-widget-container">
                                                         <div class="elementor-text-editor elementor-clearfix">
                                                             <p>ООО &laquo;ВЕРТОЛЁТ&raquo;<br />
-                                                                Телефон: <a href="tel:+7495271005">+7 495 271-00-5</a><br />
+                                                                Телефон: <a href="tel:+74951271005">+7 495 127-10-05</a><br />
                                                                 E-mail: <a href="mailto:vertolet.msk@mail.ru">vertolet.msk@mail.ru</a><br />
                                                                 Адрес:<br />МО, г.&nbsp;Балашиха, ул.&nbsp;Добросельская, д.&nbsp;10, пом.&nbsp;18<br />
                                                                 ИНН: 5001145992<br />
@@ -1143,12 +1174,35 @@ if (!empty($_POST)) {
                                                         </div>
                                                     </div>
                                                 </div>
+
+                                                <style>
+                                                    .elementor-social-icon.icon-telegram img {
+                                                        width: 30px;
+                                                        height: 30px;
+                                                        margin: 5px;
+                                                    }
+                                                    .elementor-social-icon.icon-viber img {
+                                                        width: 35px;
+                                                        height: 35px;
+                                                        margin: 0 0 1px 2px;
+                                                    }
+                                                </style>
+
                                                 <div class="elementor-element elementor-element-54d2b293 elementor-shape-rounded elementor-widget elementor-widget-social-icons" data-id="54d2b293" data-element_type="widget" data-widget_type="social-icons.default">
                                                     <div class="elementor-widget-container">
                                                         <div class="elementor-social-icons-wrapper">
-                                                            <a class="elementor-icon elementor-social-icon elementor-social-icon-facebook"
+                                                            <a class="elementor-icon elementor-social-icon"
                                                                href="https://api.whatsapp.com/send?phone=79153477071" target="_blank">
                                                                 <img src="img/WhatsApp.svg" height="40" width="40" />
+                                                            </a>
+                                                            <a class="elementor-icon elementor-social-icon icon-telegram"
+                                                               href="https://t.me/VsemLezhat" target="_blank">
+                                                                <img src="img/Telegram.svg" height="40" width="40" />
+                                                            </a>
+
+                                                            <a class="elementor-icon elementor-social-icon icon-viber"
+                                                               href="viber://chat?number=%2B79153477071" target="_blank">
+                                                                <img src="img/Viber2.svg" height="40" width="40" />
                                                             </a>
 
 <!--                                                            <a class="elementor-icon elementor-social-icon elementor-social-icon-facebook" href="https://www.facebook.com/zemezlab/" target="_blank">-->

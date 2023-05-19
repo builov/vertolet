@@ -6,12 +6,12 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-class Emailer
+class Emailer implements EmailerInterface
 {
-    private $subject;
-    private $body;
-    private $altBody;
-    private $attachment;
+    private EmailSubject $subject;
+    private EmailBody $body;
+    private string $altBody;
+    private EmailAttachment $attachment;
 
     public function setSubject($str)
     {
