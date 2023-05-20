@@ -2,7 +2,7 @@
 
 namespace Builov\Vertolet;
 
-class Uploader
+class Uploader implements UploaderInterface
 {
     private $uploaddir;
 

@@ -1,15 +1,31 @@
 <?php
 
-use Builov\Vertolet\Form;
+//todo:
+// fluent interface
+// проверить на magic values
+// VO
+// DRY, KISS, YAGNI
+// параметры и возвраты функций
+// исключения
+// I: Emailer, Uploader
+// App: Form
+
+use Builov\Vertolet\Emailer;
+use Builov\Vertolet\Uploader;
+use Builov\Vertolet\CustomerRequestForm;
 
 require 'vendor/autoload.php';
 require 'config.php';
 
-$form = new Form();
+$emailer = new Emailer();
+$uploader = new Uploader();
+$form = new CustomerRequestForm($emailer, $uploader);
 
 if (!empty($_POST)) {
     $form->process();
 }
+
+$htmlform = $form->generate();
 ?>
 
 <!DOCTYPE html>
@@ -28,6 +44,7 @@ if (!empty($_POST)) {
     <!--	<link rel='stylesheet' id='font-awesome-css'  href='https://ld-wp.template-help.com/wordpress_free/23520/wp-content/plugins/elementor/assets/lib/font-awesome/css/font-awesome.min.css?ver=4.7.0' type='text/css' media='all' />-->
 
     <link rel='stylesheet' href='css/fonts.css?ver=1.0.0' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/all.css' type='text/css' media='all' />
     <link rel='stylesheet' id='worky-theme-style-css'  href='css/workylite/style.css' type='text/css' media='all' />
     <link rel='stylesheet' id='worky-theme-style-inline-css'  href='css/worky-theme-style-inline.css' type='text/css' />
 
@@ -35,7 +52,7 @@ if (!empty($_POST)) {
 
     <link rel='stylesheet' id='elementor-icons-css'  href='css/elementor-icons.min.css?ver=4.3.0' type='text/css' media='all' />
     <link rel='stylesheet' id='elementor-animations-css'  href='css/animations.min.css?ver=2.5.13' type='text/css' media='all' />
-    <link rel='stylesheet' id='elementor-frontend-css'  href='css/frontend.min.css?ver=2.5.13' type='text/css' media='all' />
+    <link rel='stylesheet' id='elementor-frontend-css'  href='css/frontend.css' type='text/css' media='all' />
     <link rel='stylesheet' id='elementor-frontend-inline-css'  href='css/elementor-frontend-inline.css' type='text/css' />
 
     <link rel='stylesheet' id='google-fonts-1-css'  href='https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7COswald%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CMontserrat%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CPoppins%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;ver=5.1.1' type='text/css' media='all' />
@@ -136,6 +153,7 @@ if (!empty($_POST)) {
         .contact-navigation a.icon img {
             top: 3px;
             position: relative;
+            margin-right: 10px;
         }
         .contact-navigation {
             /*font-style: normal;*/
@@ -157,6 +175,7 @@ if (!empty($_POST)) {
             list-style: none;
             margin: 0;
             padding-left: 0;
+            line-height: 300%;
         }
         .contact-navigation .menu > li:first-child {
             margin-left: 0;
@@ -172,14 +191,42 @@ if (!empty($_POST)) {
         .contact-navigation .menu-item a {
             color: #fff !important;
             text-transform: none;
-            font-size: 14px;
-            /*line-height: 15px;*/
+            font-size: 18px;
+            line-height: 22px;
             font-weight: 400;
             letter-spacing: 1.2px;
         }
         .contact-navigation a {
             display: inline-block;
             text-decoration: none;
+            color: #ffffff;
+        }
+        @media(min-width:640px) {
+            .contact-navigation {
+                position: static;
+                top: 0;
+                left: 0;
+                z-index: 1;
+            }
+            .contact-navigation ul {
+                line-height: 200%;
+            }
+            .contact-navigation .menu-item a {
+                font-size: 14px;
+                line-height: 15px;
+                font-weight: 400;
+                letter-spacing: 1.2px;
+            }
+            header#masthead.sticky .contact-navigation li {
+                display: inline-block;
+            }
+            header#masthead.sticky .desktop-only {
+                display:none;
+            }
+            header#masthead.sticky i.fa {
+                font-size: 20px;
+                margin-right: 1em;
+            }
         }
     </style>
 
@@ -196,14 +243,32 @@ if (!empty($_POST)) {
                     <div class="contact-navigation-inner">
                         <ul class="top-menu">
                             <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                                <a href="mailto:vertolet.msk@mail.ru" aria-current="page">vertolet.msk@mail.ru</a>
+                                <a href="mailto:vertolet.msk@mail.ru" aria-current="page">
+                                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                    <span class="desktop-only">vertolet.msk@mail.ru</span>
+                                </a>
                             </li>
                             <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                                <a href="tel:+7495271005">+7 495 271-00-5</a>
+                                <a href="tel:+74951271005">
+                                    <i class="fa fa-phone" aria-hidden="true"></i>
+                                    <span class="desktop-only">+7 495 127-10-05</span>
+                                </a>
                             </li>
-                            <li><a class="icon"
-                               href="https://api.whatsapp.com/send?phone=79153477071" target="_blank"><img src="img/WhatsApp.svg" height="20" width="20" />
-                            </a>
+                            <li>
+                                <a class="icon" href="https://api.whatsapp.com/send?phone=79153477071" target="_blank">
+<!--                                    <img src="img/WhatsApp.svg" height="30" width="30" />-->
+                                    <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                </a>
+
+                                <a class="icon" href="https://t.me/VsemLezhat" target="_blank">
+<!--                                    <img src="img/Telegram.svg" height="27" width="27" />-->
+                                    <i class="fa fa-telegram" aria-hidden="true"></i>
+                                </a>
+
+                                <a class="icon" href="viber://chat?number=%2B79153477071" target="_blank">
+<!--                                    <img src="img/Viber2.svg" height="26" width="26" />-->
+                                    <i class="fa fa-brands fa-viber"></i>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -412,7 +477,7 @@ if (!empty($_POST)) {
                                                             <p>Наши преимущества:</p>
                                                             <ul class="check">
                                                                 <li>гибкие условия сотрудничества</li>
-                                                                <li>ценообразование, низкие цены благодаря прямым договорам с производимтельями</li>
+                                                                <li>ценообразование, низкие цены благодаря прямым договорам с производителями</li>
                                                                 <li>оперативная доставка</li>
                                                             </ul>
                                                         </div>
@@ -578,7 +643,7 @@ if (!empty($_POST)) {
                                                         <img class="brand-logo" src="img/brands/steher.png" />
                                                         <img class="brand-logo" src="img/brands/grinda.png" style="padding: 0 20px 20px 0;" />
                                                         <img class="brand-logo" src="img/brands/hilberg.jpg" style="width: 230px;" />
-                                                        <img class="brand-logo" src="img/brands/Trio_Diamond_logo-basement-1.png" style="width: 230px; margin-top: -20px;" />
+<!--                                                        <img class="brand-logo" src="img/brands/Trio_Diamond_logo-basement-1.png" style="width: 230px; margin-top: -20px;" />-->
 
 <!--                                                        <div class="elementor-button-wrapper">-->
 <!--                                                            <a href="" class="elementor-button-link elementor-button elementor-size-sm" role="button">-->
@@ -603,11 +668,14 @@ if (!empty($_POST)) {
 
 
 
-                                    <!-- Testimonials -->
+                                    <!-- Цитата дня -->
 
                                     <style>
                                         i.fa {
                                             font-style: normal;
+                                        }
+                                        .mt3em {
+                                            margin-top: 3em;
                                         }
                                     </style>
 
@@ -626,30 +694,37 @@ if (!empty($_POST)) {
                                                 </div>
                                                 <div class="elementor-element elementor-element-403d51d4 elementor-widget elementor-widget-heading" data-id="403d51d4" data-element_type="widget" data-widget_type="heading.default">
                                                     <div class="elementor-widget-container">
-                                                        <h5 class="elementor-heading-title elementor-size-default">Testimonials</h5>		</div>
+                                                        <h5 class="elementor-heading-title elementor-size-default">Цитата дня</h5>		</div>
                                                 </div>
-                                                <div class="elementor-element elementor-element-754d4c4a elementor-widget elementor-widget-heading" data-id="754d4c4a" data-element_type="widget" data-widget_type="heading.default">
-                                                    <div class="elementor-widget-container">
-                                                        <h2 class="elementor-heading-title elementor-size-default">What our <br>
-                                                            clients say</h2>		</div>
-                                                </div>
-                                                <div class="elementor-element elementor-element-100cd068 elementor-widget elementor-widget-divider" data-id="100cd068" data-element_type="widget" data-widget_type="divider.default">
-                                                    <div class="elementor-widget-container">
-                                                        <div class="elementor-divider">
-                                                            <span class="elementor-divider-separator"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
+<!--                                                <div class="elementor-element elementor-element-754d4c4a elementor-widget elementor-widget-heading" data-id="754d4c4a" data-element_type="widget" data-widget_type="heading.default">-->
+<!--                                                    <div class="elementor-widget-container">-->
+<!--                                                        <h2 class="elementor-heading-title elementor-size-default">What our <br>-->
+<!--                                                            clients say</h2>		</div>-->
+<!--                                                </div>-->
+<!--                                                <div class="elementor-element elementor-element-100cd068 elementor-widget elementor-widget-divider" data-id="100cd068" data-element_type="widget" data-widget_type="divider.default">-->
+<!--                                                    <div class="elementor-widget-container">-->
+<!--                                                        <div class="elementor-divider">-->
+<!--                                                            <span class="elementor-divider-separator"></span>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
                                                 <div class="elementor-element elementor-element-f223197 elementor-widget elementor-widget-text-editor" data-id="f223197" data-element_type="widget" data-widget_type="text-editor.default">
                                                     <div class="elementor-widget-container">
-                                                        <div class="elementor-text-editor elementor-clearfix">It is not every construction company that can build a building from ground up and complete 80,000 sq. ft. of first class office improvement space in 13 months. </div>
+                                                        <div class="elementor-text-editor elementor-clearfix">Люди платят нам за интеграцию, у них нет времени сутки напролет думать, что к чему подключается.</div>
                                                     </div>
                                                 </div>
                                                 <div class="elementor-element elementor-element-1dc591b elementor-widget elementor-widget-text-editor" data-id="1dc591b" data-element_type="widget" data-widget_type="text-editor.default">
                                                     <div class="elementor-widget-container">
-                                                        <div class="elementor-text-editor elementor-clearfix"><b>Kent</b>, posted on Everywhere</div>
+                                                        <div class="elementor-text-editor elementor-clearfix">Стив Джобс</div>
                                                     </div>
                                                 </div>
+
+                                                <div class="elementor-element elementor-widget">
+                                                    <div class="elementor-widget-container">
+                                                        <img class="mt3em" src="img/store.jpg" />
+                                                    </div>
+                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
@@ -688,8 +763,7 @@ if (!empty($_POST)) {
                                                 </div>
                                                 <div class="elementor-element elementor-element-1f6ee7e3 elementor-invisible elementor-widget elementor-widget-heading" data-id="1f6ee7e3" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInLeft&quot;}" data-widget_type="heading.default">
                                                     <div class="elementor-widget-container">
-                                                        <h2 class="elementor-heading-title elementor-size-default nowrap">поставляемая<br>
-                                                            продукция</h2>
+                                                        <h2 class="elementor-heading-title elementor-size-default nowrap">Виды<br>поставляемой<br>продукции</h2>
                                                     </div>
                                                 </div>
                                                 <div class="elementor-element elementor-element-1e312b67 animated-slow elementor-invisible elementor-widget elementor-widget-divider" data-id="1e312b67" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInRight&quot;}" data-widget_type="divider.default">
@@ -782,26 +856,27 @@ if (!empty($_POST)) {
                                                                 </figure><figure class='gallery-item'>
                                                                     <img width="600" height="616" src="img/catalog/krovat.webp" />
                                                                     <h5>Металлические кровати</h5>
-                                                                </figure><figure class='gallery-item'>
-                                                                    <img width="600" height="616" src="img/catalog/tara.webp" />
-                                                                    <h5>Тара</h5>
                                                                 </figure>
+<!--                                                                <figure class='gallery-item'>-->
+<!--                                                                    <img width="600" height="616" src="img/catalog/tara.webp" />-->
+<!--                                                                    <h5>Тара</h5>-->
+<!--                                                                </figure>-->
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="elementor-element elementor-element-77141a4 elementor-align-center elementor-widget elementor-widget-button" data-id="77141a4" data-element_type="widget" data-widget_type="button.default">
-                                                    <div class="elementor-widget-container">
-                                                        <div class="elementor-button-wrapper">
-                                                            <a href=""
-                                                               class="elementor-button-link elementor-button elementor-size-sm" role="button">
-                                                                <span class="elementor-button-content-wrapper">
-                                                                    <span class="elementor-button-text">скачать каталог</span>
-                                                                </span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
+<!--                                                <div class="elementor-element elementor-element-77141a4 elementor-align-center elementor-widget elementor-widget-button" data-id="77141a4" data-element_type="widget" data-widget_type="button.default">-->
+<!--                                                    <div class="elementor-widget-container">-->
+<!--                                                        <div class="elementor-button-wrapper">-->
+<!--                                                            <a href=""-->
+<!--                                                               class="elementor-button-link elementor-button elementor-size-sm" role="button">-->
+<!--                                                                <span class="elementor-button-content-wrapper">-->
+<!--                                                                    <span class="elementor-button-text">скачать каталог</span>-->
+<!--                                                                </span>-->
+<!--                                                            </a>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
                                     </div>
@@ -1085,7 +1160,7 @@ if (!empty($_POST)) {
                                                     <div class="elementor-widget-container">
                                                         <div class="elementor-text-editor elementor-clearfix">
                                                             <p>ООО &laquo;ВЕРТОЛЁТ&raquo;<br />
-                                                                Телефон: <a href="tel:+7495271005">+7 495 271-00-5</a><br />
+                                                                Телефон: <a href="tel:+74951271005">+7 495 127-10-05</a><br />
                                                                 E-mail: <a href="mailto:vertolet.msk@mail.ru">vertolet.msk@mail.ru</a><br />
                                                                 Адрес:<br />МО, г.&nbsp;Балашиха, ул.&nbsp;Добросельская, д.&nbsp;10, пом.&nbsp;18<br />
                                                                 ИНН: 5001145992<br />
@@ -1099,12 +1174,35 @@ if (!empty($_POST)) {
                                                         </div>
                                                     </div>
                                                 </div>
+
+                                                <style>
+                                                    .elementor-social-icon.icon-telegram img {
+                                                        width: 30px;
+                                                        height: 30px;
+                                                        margin: 5px;
+                                                    }
+                                                    .elementor-social-icon.icon-viber img {
+                                                        width: 35px;
+                                                        height: 35px;
+                                                        margin: 0 0 1px 2px;
+                                                    }
+                                                </style>
+
                                                 <div class="elementor-element elementor-element-54d2b293 elementor-shape-rounded elementor-widget elementor-widget-social-icons" data-id="54d2b293" data-element_type="widget" data-widget_type="social-icons.default">
                                                     <div class="elementor-widget-container">
                                                         <div class="elementor-social-icons-wrapper">
-                                                            <a class="elementor-icon elementor-social-icon elementor-social-icon-facebook"
+                                                            <a class="elementor-icon elementor-social-icon"
                                                                href="https://api.whatsapp.com/send?phone=79153477071" target="_blank">
                                                                 <img src="img/WhatsApp.svg" height="40" width="40" />
+                                                            </a>
+                                                            <a class="elementor-icon elementor-social-icon icon-telegram"
+                                                               href="https://t.me/VsemLezhat" target="_blank">
+                                                                <img src="img/Telegram.svg" height="40" width="40" />
+                                                            </a>
+
+                                                            <a class="elementor-icon elementor-social-icon icon-viber"
+                                                               href="viber://chat?number=%2B79153477071" target="_blank">
+                                                                <img src="img/Viber2.svg" height="40" width="40" />
                                                             </a>
 
 <!--                                                            <a class="elementor-icon elementor-social-icon elementor-social-icon-facebook" href="https://www.facebook.com/zemezlab/" target="_blank">-->
@@ -1155,7 +1253,7 @@ if (!empty($_POST)) {
                                                                             <span class="wpcf7-form-control-wrap your-name">
                                                                                 <input type="text" name="your-name" value="" size="40"
                                                                                        class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true"
-                                                                                       aria-invalid="false" placeholder="Your Name" />
+                                                                                       aria-invalid="false" placeholder="Ваше имя" />
                                                                             </span>
                                                                         </label>
                                                                     </p>
@@ -1164,7 +1262,7 @@ if (!empty($_POST)) {
                                                                             <span class="wpcf7-form-control-wrap your-email">
                                                                                 <input type="email" name="your-email" value="" size="40"
                                                                                        class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email"
-                                                                                       aria-required="true" aria-invalid="false" placeholder="Your E-mail" />
+                                                                                       aria-required="true" aria-invalid="false" placeholder="Ваш email" />
                                                                             </span>
                                                                         </label>
                                                                     </p>
@@ -1172,7 +1270,7 @@ if (!empty($_POST)) {
                                                                         <label><br />
                                                                             <span class="wpcf7-form-control-wrap your-message">
                                                                                 <textarea name="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea"
-                                                                                          aria-invalid="false" placeholder="Your Message"></textarea>
+                                                                                          aria-invalid="false" placeholder="Текст сообщения"></textarea>
                                                                             </span>
                                                                         </label>
                                                                     </p>
