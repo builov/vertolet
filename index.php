@@ -150,11 +150,8 @@ $htmlform = $form->generate();
         .sticky .site-branding img {
             display: none;
         }
-        .contact-navigation a.icon img {
-            top: 3px;
-            position: relative;
-            margin-right: 10px;
-        }
+
+
         .contact-navigation {
             /*font-style: normal;*/
             /*font-weight: 400;*/
@@ -167,6 +164,18 @@ $htmlform = $form->generate();
             top: 0;
             left: 0;
             z-index: 1;
+        }
+        /*.contact-navigation a.icon img {*/
+        /*    top: 3px;*/
+        /*    position: relative;*/
+        /*    margin-right: 10px;*/
+        /*}*/
+        .contact-navigation .fa-whatsapp,
+        .contact-navigation .fa-telegram,
+        .contact-navigation .fa-viber
+        {
+            font-size: 23px;
+            margin-right: 1em;
         }
         header#masthead div.contact-navigation-inner {
             background-color: transparent;
@@ -207,9 +216,10 @@ $htmlform = $form->generate();
                 top: 0;
                 left: 0;
                 z-index: 1;
+                text-align: right;
             }
             .contact-navigation ul {
-                line-height: 200%;
+                line-height: 250%;
             }
             .contact-navigation .menu-item a {
                 font-size: 14px;
@@ -225,7 +235,22 @@ $htmlform = $form->generate();
             }
             header#masthead.sticky i.fa {
                 font-size: 20px;
-                margin-right: 1em;
+                margin-left: 1em;
+                margin-right: 0;
+            }
+            .contact-navigation .fa-whatsapp,
+            .contact-navigation .fa-telegram,
+            .contact-navigation .fa-viber
+            {
+                font-size: 22px;
+                margin-right: 0;
+                margin-left: 1em;
+            }
+            header#masthead.sticky .contact-navigation .fa-whatsapp,
+            header#masthead.sticky .contact-navigation .fa-telegram,
+            header#masthead.sticky .contact-navigation .fa-viber
+            {
+                font-size: 23px;
             }
         }
     </style>
@@ -238,6 +263,20 @@ $htmlform = $form->generate();
                     <a href="/" rel="home"><img src="img/logo3.png" class="logo" alt=""></a>
                     <a href="/" rel="home" class="text">VERTOLЁT</a>
                 </div>
+
+
+
+                <nav id="site-navigation" class="main-navigation" role="navigation">
+                    <div class="main-navigation-inner">
+                        <ul id="main-menu" class="menu">
+                            <li id="menu-item-22" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22"><a href="#about" aria-current="page">О КОМПАНИИ</a></li>
+                            <li id="menu-item-21" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21"><a href="#products">ПРОДУКЦИЯ</a></li>
+                            <li id="menu-item-20" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20"><a href="#partners">ПАРТНЕРЫ</a></li>
+                            <li id="menu-item-18" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-18"><a href="#contact">КОНТАКТЫ</a></li>
+                        </ul>
+                    </div>
+                </nav>
+
 
                 <nav class="contact-navigation">
                     <div class="contact-navigation-inner">
@@ -256,31 +295,20 @@ $htmlform = $form->generate();
                             </li>
                             <li>
                                 <a class="icon" href="https://api.whatsapp.com/send?phone=79153477071" target="_blank">
-<!--                                    <img src="img/WhatsApp.svg" height="30" width="30" />-->
+                                    <!--                                    <img src="img/WhatsApp.svg" height="30" width="30" />-->
                                     <i class="fa fa-whatsapp" aria-hidden="true"></i>
                                 </a>
 
                                 <a class="icon" href="https://t.me/VsemLezhat" target="_blank">
-<!--                                    <img src="img/Telegram.svg" height="27" width="27" />-->
+                                    <!--                                    <img src="img/Telegram.svg" height="27" width="27" />-->
                                     <i class="fa fa-telegram" aria-hidden="true"></i>
                                 </a>
 
                                 <a class="icon" href="viber://chat?number=%2B79153477071" target="_blank">
-<!--                                    <img src="img/Viber2.svg" height="26" width="26" />-->
+                                    <!--                                    <img src="img/Viber2.svg" height="26" width="26" />-->
                                     <i class="fa fa-brands fa-viber"></i>
                                 </a>
                             </li>
-                        </ul>
-                    </div>
-                </nav>
-
-                <nav id="site-navigation" class="main-navigation" role="navigation">
-                    <div class="main-navigation-inner">
-                        <ul id="main-menu" class="menu">
-                            <li id="menu-item-22" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22"><a href="#about" aria-current="page">О КОМПАНИИ</a></li>
-                            <li id="menu-item-21" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21"><a href="#products">ПРОДУКЦИЯ</a></li>
-                            <li id="menu-item-20" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20"><a href="#partners">ПАРТНЕРЫ</a></li>
-                            <li id="menu-item-18" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-18"><a href="#contact">КОНТАКТЫ</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -426,6 +454,18 @@ $htmlform = $form->generate();
                                 font-weight: 500;
                                 line-height: 2.143em;
                             }
+                            .elementor-8 .elementor-element.elementor-element-46dc31bf {
+                                padding-bottom: 0;
+                            }
+                            .elementor-element-46dc31bf h3 {
+                                color: #000000;
+                                font-family: "Oswald", Sans-serif;
+                                font-size: 18px;
+                                font-weight: 300;
+                                text-transform: uppercase;
+                                font-style: normal;
+                                letter-spacing: 1.8px;
+                            }
                         </style>
 
                         <a id="about"></a>
@@ -474,12 +514,12 @@ $htmlform = $form->generate();
                                                 <div class="elementor-element elementor-element-10623144 elementor-widget elementor-widget-text-editor" data-id="4e8da247" data-element_type="widget" data-widget_type="text-editor.default">
                                                     <div class="elementor-widget-container">
                                                         <div class="elementor-text-editor elementor-clearfix">
-                                                            <p>Наши преимущества:</p>
-                                                            <ul class="check">
-                                                                <li>гибкие условия сотрудничества</li>
-                                                                <li>ценообразование, низкие цены благодаря прямым договорам с производителями</li>
-                                                                <li>оперативная доставка</li>
-                                                            </ul>
+                                                            <h3>НАШИ ПРЕИМУЩЕСТВА:</h3>
+<!--                                                            <ul class="check">-->
+<!--                                                                <li>гибкие условия сотрудничества</li>-->
+<!--                                                                <li>ценообразование, низкие цены благодаря прямым договорам с производителями</li>-->
+<!--                                                                <li>оперативная доставка</li>-->
+<!--                                                            </ul>-->
                                                         </div>
                                                     </div>
                                                 </div>
@@ -491,8 +531,9 @@ $htmlform = $form->generate();
                         </section>
 
                         <style>
-                            .elementor-8 .elementor-element-3864ebd0 a.elementor-button,
-                            .elementor-8 .elementor-element-3864ebd0 .elementor-button
+                            .elementor-8 .elementor-element-3864ebd0 span.elementor-button,
+                            .elementor-8 .elementor-element-3864ebd0 .elementor-button,
+                            .elementor-8 .elementor-element.elementor-element-e7a365d .elementor-button:hover
                             {
                                 font-family: "Oswald", Sans-serif;
                                 font-size: 24px;
@@ -503,8 +544,18 @@ $htmlform = $form->generate();
                                 letter-spacing: 0px;
                                 color: #ffffff;
 
-                                text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
+                                /*text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;*/
                                 /*text-shadow: 0 0 10px #000;*/
+                            }
+                            .elementor-element-3864ebd0 .elementor-widget-container {
+                                position:relative;
+                            }
+                            .elementor-element-3864ebd0 .shadow {
+                                width:100%;
+                                height:100%;
+                                background-color: #000000;
+                                position: absolute;
+                                opacity: 0.7;
                             }
                         </style>
                         <section class="elementor-element elementor-element-3864ebd0 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="3864ebd0" data-element_type="section">
@@ -515,13 +566,16 @@ $htmlform = $form->generate();
                                         <div class="elementor-column-wrap  elementor-element-populated">
                                             <div class="elementor-widget-wrap">
                                                 <div class="elementor-element elementor-element-e7a365d elementor-align-center elementor-widget elementor-widget-button" data-id="e7a365d" data-element_type="widget" data-widget_type="button.default">
+
+                                                    <div class="shadow"></div>
+
                                                     <div class="elementor-widget-container">
                                                         <div class="elementor-button-wrapper">
-                                                            <a href="" class="elementor-button-link elementor-button elementor-size-sm" role="button">
+                                                            <span href="" class="elementor-button-link elementor-button elementor-size-sm" role="button">
                                                                 <span class="elementor-button-content-wrapper">
                                                                     <span class="elementor-button-text">ИНДИВИДУАЛЬНЫЙ<br>ПОДХОД</span>
                                                                 </span>
-                                                            </a>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -533,13 +587,16 @@ $htmlform = $form->generate();
                                         <div class="elementor-column-wrap  elementor-element-populated">
                                             <div class="elementor-widget-wrap">
                                                 <div class="elementor-element elementor-element-a5307ad elementor-align-center elementor-widget elementor-widget-button" data-id="a5307ad" data-element_type="widget" data-widget_type="button.default">
+
+                                                    <div class="shadow"></div>
+
                                                     <div class="elementor-widget-container">
                                                         <div class="elementor-button-wrapper">
-                                                            <a href="" class="elementor-button-link elementor-button elementor-size-sm" role="button">
+                                                            <span href="" class="elementor-button-link elementor-button elementor-size-sm" role="button">
 						                                        <span class="elementor-button-content-wrapper">
 						                                            <span class="elementor-button-text">ГИБКОЕ<br>ЦЕНООБРАЗОВАНИЕ</span>
 		                                                        </span>
-                                                            </a>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -551,13 +608,16 @@ $htmlform = $form->generate();
                                         <div class="elementor-column-wrap  elementor-element-populated">
                                             <div class="elementor-widget-wrap">
                                                 <div class="elementor-element elementor-element-979df34 elementor-align-center elementor-widget elementor-widget-button" data-id="979df34" data-element_type="widget" data-widget_type="button.default">
+
+                                                    <div class="shadow"></div>
+
                                                     <div class="elementor-widget-container">
                                                         <div class="elementor-button-wrapper">
-                                                            <a href="" class="elementor-button-link elementor-button elementor-size-sm" role="button">
+                                                            <span href="" class="elementor-button-link elementor-button elementor-size-sm" role="button">
                                                                 <span class="elementor-button-content-wrapper">
                                                                     <span class="elementor-button-text">ОПЕРАТИВНАЯ<br>ДОСТАВКА</span>
                                                                 </span>
-                                                            </a>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
