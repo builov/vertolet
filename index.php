@@ -174,7 +174,7 @@ $htmlform = $form->generate();
         .contact-navigation .fa-telegram,
         .contact-navigation .fa-viber
         {
-            font-size: 23px;
+            font-size: 20px;
             margin-right: 1em;
         }
         header#masthead div.contact-navigation-inner {
@@ -242,7 +242,7 @@ $htmlform = $form->generate();
             .contact-navigation .fa-telegram,
             .contact-navigation .fa-viber
             {
-                font-size: 22px;
+                font-size: 20px;
                 margin-right: 0;
                 margin-left: 1em;
             }
@@ -250,7 +250,7 @@ $htmlform = $form->generate();
             header#masthead.sticky .contact-navigation .fa-telegram,
             header#masthead.sticky .contact-navigation .fa-viber
             {
-                font-size: 23px;
+                font-size: 20px;
             }
         }
     </style>

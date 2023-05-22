@@ -4,10 +4,10 @@ namespace Builov\Vertolet;
 
 class EmailForm implements FormInterface
 {
-    protected EmailAddress $from;
-    protected EmailSubject $subject;
-    protected EmailBody $message;
-    protected EmailAddress $address;
+//    protected EmailAddress $from;
+//    protected EmailSubject $subject;
+//    protected EmailBody $message;
+//    protected EmailAddress $address;
 
     protected EmailerInterface $emailer;
 
@@ -16,11 +16,7 @@ class EmailForm implements FormInterface
         $this->emailer = $emailer;
     }
 
-    public function generate() {
+    public function generate() {}
 
-    }
-
-    public function process() {
-
-    }
+    public function process() {}
 }

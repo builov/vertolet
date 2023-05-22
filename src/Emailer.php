@@ -16,21 +16,25 @@ class Emailer implements EmailerInterface
     public function setSubject($str)
     {
         $this->subject = $str;
+        return $this;
     }
 
     public function setBody($str)
     {
         $this->body = $str;
+        return $this;
     }
 
     public function setAltBody($str)
     {
         $this->altBody = $str;
+        return $this;
     }
 
     public function setAttachment($path)
     {
         $this->attachment = $path;
+        return $this;
     }
 
     public function mail(): void
