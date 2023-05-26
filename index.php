@@ -85,6 +85,23 @@ $htmlform = $form->generate();
             text-align: left;
             color: #3b3d42;
         }
+        .alert {
+            position: relative;
+            padding: 0.75rem 1.25rem;
+            margin-bottom: 1rem;
+            border: 1px solid transparent;
+            border-radius: 0.25rem;
+        }
+        .alert-success {
+            color: #155724;
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+        }
+        .alert-danger {
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+        }
     </style>
 </head>
 
@@ -401,7 +418,7 @@ $htmlform = $form->generate();
                                                 <div class="elementor-element elementor-element-cbb5de5 elementor-align-center elementor-widget elementor-widget-button" data-id="cbb5de5" data-element_type="widget" data-widget_type="button.default">
                                                     <div class="elementor-widget-container">
                                                         <div class="elementor-button-wrapper">
-                                                            <a id="testlink" href="https://ld-wp.template-help.com/wordpress_free/23520/about/" class="elementor-button-link elementor-button elementor-size-sm" role="button">
+                                                            <a data-fancybox data-src="#modal-form" id="testlink" href="" class="elementor-button-link elementor-button elementor-size-sm" role="button">
                                                                 <span class="elementor-button-content-wrapper">
                                                                     <span id="order-button" class="elementor-button-text">Оставить заявку</span>
                                                                 </span>
@@ -1306,7 +1323,8 @@ $htmlform = $form->generate();
 
                                                 <!-- FORM -->
 
-                                                                <form enctype="multipart/form-data" action="/" method="post" class="wpcf7-form" novalidate="novalidate">
+                                                                <form enctype="multipart/form-data" action="/mail.php" method="post" class="wpcf7-form" id="wpcf7-form" novalidate="novalidate">
+
                                                                     <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
                                                                     <p>
                                                                         <label><br />
@@ -1376,7 +1394,42 @@ $htmlform = $form->generate();
                             </div>
                         </section-->
 
-
+                            <form id="modal-form" style="display:none;" enctype="multipart/form-data" action="/mail.php" method="post" class="wpcf7-form" novalidate="novalidate">
+                                <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
+                                <p>
+                                    <label><br />
+                                        <span class="wpcf7-form-control-wrap your-name">
+                                                                                <input type="text" name="your-name" id="your-name" value="" size="40"
+                                                                                       class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true"
+                                                                                       aria-invalid="false" placeholder="Ваше имя" />
+                                                                            </span>
+                                    </label>
+                                </p>
+                                <p>
+                                    <label><br />
+                                        <span class="wpcf7-form-control-wrap your-email">
+                                                                                <input type="email" name="your-email" id="your-email" value="" size="40"
+                                                                                       class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email"
+                                                                                       aria-required="true" aria-invalid="false" placeholder="Ваш email" />
+                                                                            </span>
+                                    </label>
+                                </p>
+                                <p>
+                                    <label><br />
+                                        <span class="wpcf7-form-control-wrap your-message">
+                                                                                <textarea name="your-message" id="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea"
+                                                                                          aria-invalid="false" placeholder="Текст сообщения"></textarea>
+                                                                            </span>
+                                    </label>
+                                </p>
+                                <p>
+                                    <input name="attachment" id="attachment" type="file" />
+                                </p>
+                                <p>
+                                    <input type="submit" value="Отправить" class="wpcf7-form-control wpcf7-submit" />
+                                </p>
+                                <div class="wpcf7-response-output wpcf7-display-none"></div>
+                            </form>
 
                     </div>
                 </div>
@@ -1404,21 +1457,64 @@ $htmlform = $form->generate();
 </div><!-- #page -->
 
 <script type='text/javascript'>
-    document.getElementById('testlink').addEventListener('click', function(event) {
-        event.preventDefault();
-        new Fancybox([
-            {
-                src: "#wpcf7-f5-p8-o1",
-                type: "clone"
+    async function sendEmail(e) {
+        e.preventDefault();
+
+        let data = new FormData(e.target);
+        data.append('xhr', 'xhr');
+
+        let response = await fetch('/mail.php', {
+            method: 'POST',
+            body: data
+        });
+
+        let result = await response.text();
+
+        console.log('Ответ: ', result);
+
+        e.target.reset();
+
+        e.target.insertAdjacentHTML('afterbegin', result);
+    }
+
+    /**
+     * Вызов модального окна с формой обратной связи
+     */
+    Fancybox.bind("[data-fancybox]", {
+        src: "#modal-form",
+        type: "clone",
+        on: {
+            ready: (fancybox) => {
+                console.log(`ready`);
+                if (document.getElementsByClassName('alert').length > 0) {
+                    document.getElementsByClassName('alert')[0].remove();
+                }
             },
-        ]);
+            close: (fancybox) => {
+                console.log(`close`);
+            },
+        },
     });
-    // Fancybox.bind(document.getElementById("order-button"), "[data-fancybox]", {
-    //     // src: "#dialog-content",
-    //     type: "inline"
+
+    // document.getElementById('testlink').addEventListener('click', function(event) {
+    //     event.preventDefault();
+    //     const fancybox = new Fancybox([
+    //             {
+    //                 src: "#wpcf7-f5-p8-o1",
+    //                 type: "clone"
+    //             },
+    //         ]);
+    //     new Fancybox([
+    //         {
+    //             src: '<form enctype="multipart/form-data" action="/mail.php" method="post" class="wpcf7-form" novalidate="novalidate"><input type="hidden" name="MAX_FILE_SIZE" value="30000" /><p><label><br /><span class="wpcf7-form-control-wrap your-name"><input type="text" name="your-name" id="your-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Ваше имя" /></span></label></p><p><label><br /><span class="wpcf7-form-control-wrap your-email"><input type="email" name="your-email" id="your-email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Ваш email" /></span></label></p><p><label><br /><span class="wpcf7-form-control-wrap your-message"><textarea name="your-message" id="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Текст сообщения"></textarea></span></label></p><p><input name="attachment" id="attachment" type="file" /></p><p><input type="submit" value="Отправить" class="wpcf7-form-control wpcf7-submit" /></p><div class="wpcf7-response-output wpcf7-display-none"></div></form>',
+    //             type: "html"
+    //         },
+    //     ]);
     // });
 
-    //sticky menu
+    /**
+     * sticky menu
+     */
     window.onscroll = function() {stick()};
 
     var navbar = document.getElementById("masthead");
@@ -1431,6 +1527,38 @@ $htmlform = $form->generate();
             navbar.classList.remove("sticky");
         }
     }
+
+
+    /**
+     * Отправка формы обратной связи
+     * @param e
+     * @returns {Promise<void>}
+     */
+    document.getElementById("modal-form").addEventListener('submit', sendEmail);
+    document.getElementById("wpcf7-form").addEventListener('submit', sendEmail);
+
+    // document.getElementById("modal-form").onsubmit = async (e) => {
+    //     e.preventDefault();
+    //
+    //     // console.log(e.target);
+    //     // return false;
+    //
+    //     let data = new FormData(e.target);
+    //     data.append('xhr', 'xhr');
+    //
+    //     let response = await fetch('/mail.php', {
+    //         method: 'POST',
+    //         body: data
+    //     });
+    //
+    //     let result = await response.text();
+    //
+    //     console.log('Ответ: ', result);
+    //
+    //     e.target.reset();
+    //
+    //     e.target.insertAdjacentHTML('afterbegin', result);
+    // };
 </script>
 <!--<script type='text/javascript'>-->
 <!--    /* <![CDATA[ */-->

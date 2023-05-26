@@ -5,35 +5,39 @@ namespace Builov\Vertolet;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
+use Builov\Vertolet\EmailSubject;
+use Builov\Vertolet\EmailBody;
+use Builov\Vertolet\EmailAttachment;
 
 class Emailer implements EmailerInterface
 {
     private EmailSubject $subject;
     private EmailBody $body;
-    private string $altBody;
+    private EmailBody $altBody;
     private EmailAttachment $attachment;
 
     public function setSubject($str)
     {
-        $this->subject = $str;
+        $this->subject = new EmailSubject($str);
         return $this;
     }
 
     public function setBody($str)
     {
-        $this->body = $str;
+        $this->body = new EmailBody($str);
         return $this;
     }
 
     public function setAltBody($str)
     {
-        $this->altBody = $str;
+        $this->altBody = new EmailBody($str);
         return $this;
     }
 
     public function setAttachment($path)
     {
-        $this->attachment = $path;
+        //todo если такой файл существует и соответствует требованиям
+        $this->attachment = new EmailAttachment($path);
         return $this;
     }
 
@@ -51,14 +55,14 @@ class Emailer implements EmailerInterface
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
             $mail->Port       = SMTP_PORT;
 
-            $mail->setFrom(SMTP_FROM_DEFAULT, 'Mailer');
+            $mail->setFrom(SMTP_FROM_DEFAULT, SMTP_FROM_DEFAULT_NAME);
 //            $mail->addAddress('5905@lst.gr', 'Joe User');
             $mail->addAddress(SMTP_TO_DEFAULT);               //Name is optional
-            $mail->addReplyTo(SMTP_FROM_DEFAULT, 'Information');
+            $mail->addReplyTo(SMTP_REPLY_DEFAULT, SMTP_REPLY_DEFAULT_NAME);
 //          $mail->addCC('cc@example.com');
 //          $mail->addBCC('bcc@example.com');
 
-            if ($this->attachment) {
+            if (isset($this->attachment)) {
                 $mail->addAttachment($this->attachment);
 //              $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
             }
@@ -69,7 +73,7 @@ class Emailer implements EmailerInterface
             $mail->AltBody = $this->altBody;
 
             $mail->send();
-            echo 'Message has been sent'; exit;
+            echo '<div class="alert alert-success">Сообщение успешно отправлено.</div>';
 
         } catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";

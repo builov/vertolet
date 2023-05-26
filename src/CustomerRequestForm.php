@@ -2,25 +2,27 @@
 
 namespace Builov\Vertolet;
 
+use Exception;
+
 class CustomerRequestForm extends EmailForm
 {
     private array $fields = [
-        [
+        'your-name' => [
             'name' => 'your-name',
             'type' => 'string',
             'value' => null
         ],
-        [
+        'your-email' => [
             'name' => 'your-email',
             'type' => 'email',
             'value' => null
         ],
-        [
+        'your-message' => [
             'name' => 'your-message',
             'type' => 'text',
             'value' => null
         ],
-        [
+        'attachment' => [
             'name' => 'attachment',
             'type' => 'file',
             'value' => null
@@ -61,20 +63,20 @@ class CustomerRequestForm extends EmailForm
         return $html;
     }
 
+    /**
+     * @throws Exception
+     */
     public function process(): void      //your-name=&your-email=&your-message=
     {
-//        exit;
-        $attachment = $this->uploader->upload($this->fieldAttachment);
+        $attachment = $this->uploader->upload($this->fields['attachment']['value']);
 
         $this->emailer
             ->setSubject('Форма заявки')
-            ->setBody('<p>Имя: ' . $this->fields[0]['value'] . '</p><p>Email: ' . $this->fieldEmail . '</p><p>Сообщение: ' . $this->fieldMessage . '</p>')
-            ->setAltBody('Имя: ' . $this->fieldName . '; Email: ' . $this->fieldEmail . '; Сообщение: ' . $this->fieldMessage)
-            ->setAttachment($attachment)
-            ->mail();
-
-//        echo $_POST['your-name'];
-//        echo file_get_contents('php://input');
-//        exit;
+            ->setBody("<p>Имя: {$this->fields['your-name']['value']}</p><p>Email: {$this->fields['your-email']['value']}</p><p>Сообщение: {$this->fields['your-message']['value']}</p>")
+            ->setAltBody("Имя: {$this->fields['your-name']['value']}; Email: {$this->fields['your-email']['value']}; Сообщение: {$this->fields['your-message']['value']}");
+        if ($attachment) {
+            $this->emailer->setAttachment($attachment);
+        }
+        $this->emailer->mail();
     }
 }
