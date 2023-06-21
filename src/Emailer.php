@@ -48,6 +48,7 @@ class Emailer implements EmailerInterface
         try {
 //          $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
             $mail->isSMTP();
+            $mail->CharSet    = 'UTF-8';
             $mail->Host       = SMTP_HOST;
             $mail->SMTPAuth   = true;
             $mail->Username   = SMTP_USER;
