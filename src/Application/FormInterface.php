@@ -1,6 +1,6 @@
 <?php
 
-namespace Builov\Vertolet;
+namespace Builov\Vertolet\Application;
 
 interface FormInterface
 {

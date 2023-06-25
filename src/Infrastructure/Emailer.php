@@ -1,13 +1,13 @@
 <?php
 
-namespace Builov\Vertolet;
+namespace Builov\Vertolet\Infrastructure;
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
+use Builov\Vertolet\Application\EmailerInterface;
+use Builov\Vertolet\VO\EmailAttachment;
+use Builov\Vertolet\VO\EmailBody;
+use Builov\Vertolet\VO\EmailSubject;
 use PHPMailer\PHPMailer\Exception;
-use Builov\Vertolet\EmailSubject;
-use Builov\Vertolet\EmailBody;
-use Builov\Vertolet\EmailAttachment;
+use PHPMailer\PHPMailer\PHPMailer;
 
 class Emailer implements EmailerInterface
 {
@@ -74,10 +74,9 @@ class Emailer implements EmailerInterface
             $mail->AltBody = $this->altBody;
 
             $mail->send();
-            echo '<div class="alert alert-success">Сообщение успешно отправлено.</div>';
-
         } catch (Exception $e) {
-            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+//            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            throw new Exception($e->getMessage());
         }
     }
 }

@@ -1,35 +1,5 @@
-<?php
-
-//todo:
-// fluent interface
-// проверить на magic values
-// VO
-// DRY, KISS, YAGNI
-// параметры и возвраты функций
-// исключения
-// I: Emailer, Uploader
-// App: Form
-
-use Builov\Vertolet\Application\CustomerRequestForm;
-use Builov\Vertolet\Infrastructure\Emailer;
-use Builov\Vertolet\Infrastructure\Uploader;
-
-require 'vendor/autoload.php';
-require 'config.php';
-
-$emailer = new Emailer();
-$uploader = new Uploader();
-$form = new CustomerRequestForm($emailer, $uploader);
-
-if (!empty($_POST)) {
-    $form->process();
-}
-
-$htmlform = $form->generate();
-?>
-
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="RU">
 <head>
     <meta charset="UTF-8">
 
@@ -396,7 +366,7 @@ $htmlform = $form->generate();
 
                             <div class="elementor-background-overlay">
                                 <video muted="muted" loop autoplay="autoplay">
-                                    <source src="bg7.mp4" type="video/mp4">
+                                    <source src="out4.mp4" type="video/mp4">
                                     <!--source src="" type="video/webm"-->
                                 </video>
                             </div>
@@ -532,11 +502,11 @@ $htmlform = $form->generate();
                                                     <div class="elementor-widget-container">
                                                         <div class="elementor-text-editor elementor-clearfix">
                                                             <h3>НАШИ ПРЕИМУЩЕСТВА:</h3>
-<!--                                                            <ul class="check">-->
-<!--                                                                <li>гибкие условия сотрудничества</li>-->
-<!--                                                                <li>ценообразование, низкие цены благодаря прямым договорам с производителями</li>-->
-<!--                                                                <li>оперативная доставка</li>-->
-<!--                                                            </ul>-->
+                                                            <!--                                                            <ul class="check">-->
+                                                            <!--                                                                <li>гибкие условия сотрудничества</li>-->
+                                                            <!--                                                                <li>ценообразование, низкие цены благодаря прямым договорам с производителями</li>-->
+                                                            <!--                                                                <li>оперативная доставка</li>-->
+                                                            <!--                                                            </ul>-->
                                                         </div>
                                                     </div>
                                                 </div>
@@ -688,18 +658,18 @@ $htmlform = $form->generate();
                                                         <h5 class="elementor-heading-title elementor-size-default">Инструменты и расходные материалы</h5>
                                                     </div>
                                                 </div>
-<!--                                                <div class="elementor-element elementor-element-759009da elementor-invisible elementor-widget elementor-widget-heading" data-id="759009da" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInLeft&quot;}" data-widget_type="heading.default">-->
-<!--                                                    <div class="elementor-widget-container">-->
-<!--                                                        <h2 class="elementor-heading-title elementor-size-default">Working On <br>-->
-<!--                                                            Exclusive Projects</h2>		</div>-->
-<!--                                                </div>-->
-<!--                                                <div class="elementor-element elementor-element-545790df animated-slow elementor-invisible elementor-widget elementor-widget-divider" data-id="545790df" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInRight&quot;}" data-widget_type="divider.default">-->
-<!--                                                    <div class="elementor-widget-container">-->
-<!--                                                        <div class="elementor-divider">-->
-<!--                                                            <span class="elementor-divider-separator"></span>-->
-<!--                                                        </div>-->
-<!--                                                    </div>-->
-<!--                                                </div>-->
+                                                <!--                                                <div class="elementor-element elementor-element-759009da elementor-invisible elementor-widget elementor-widget-heading" data-id="759009da" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInLeft&quot;}" data-widget_type="heading.default">-->
+                                                <!--                                                    <div class="elementor-widget-container">-->
+                                                <!--                                                        <h2 class="elementor-heading-title elementor-size-default">Working On <br>-->
+                                                <!--                                                            Exclusive Projects</h2>		</div>-->
+                                                <!--                                                </div>-->
+                                                <!--                                                <div class="elementor-element elementor-element-545790df animated-slow elementor-invisible elementor-widget elementor-widget-divider" data-id="545790df" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInRight&quot;}" data-widget_type="divider.default">-->
+                                                <!--                                                    <div class="elementor-widget-container">-->
+                                                <!--                                                        <div class="elementor-divider">-->
+                                                <!--                                                            <span class="elementor-divider-separator"></span>-->
+                                                <!--                                                        </div>-->
+                                                <!--                                                    </div>-->
+                                                <!--                                                </div>-->
                                                 <div class="elementor-element elementor-element-49d33cb3 elementor-widget elementor-widget-text-editor" data-id="49d33cb3" data-element_type="widget" data-widget_type="text-editor.default">
                                                     <div class="elementor-widget-container">
                                                         <div class="elementor-text-editor elementor-clearfix">
@@ -720,15 +690,15 @@ $htmlform = $form->generate();
                                                         <img class="brand-logo" src="img/brands/steher.png" />
                                                         <img class="brand-logo" src="img/brands/grinda.png" style="padding: 0 20px 20px 0;" />
                                                         <img class="brand-logo" src="img/brands/hilberg.jpg" style="width: 230px;" />
-<!--                                                        <img class="brand-logo" src="img/brands/Trio_Diamond_logo-basement-1.png" style="width: 230px; margin-top: -20px;" />-->
+                                                        <!--                                                        <img class="brand-logo" src="img/brands/Trio_Diamond_logo-basement-1.png" style="width: 230px; margin-top: -20px;" />-->
 
-<!--                                                        <div class="elementor-button-wrapper">-->
-<!--                                                            <a href="" class="elementor-button-link elementor-button elementor-size-sm" role="button">-->
-<!--                                                                <span class="elementor-button-content-wrapper">-->
-<!--                                                                    <span class="elementor-button-text">view more</span>-->
-<!--                                                                </span>-->
-<!--                                                            </a>-->
-<!--                                                        </div>-->
+                                                        <!--                                                        <div class="elementor-button-wrapper">-->
+                                                        <!--                                                            <a href="" class="elementor-button-link elementor-button elementor-size-sm" role="button">-->
+                                                        <!--                                                                <span class="elementor-button-content-wrapper">-->
+                                                        <!--                                                                    <span class="elementor-button-text">view more</span>-->
+                                                        <!--                                                                </span>-->
+                                                        <!--                                                            </a>-->
+                                                        <!--                                                        </div>-->
                                                     </div>
                                                 </div>
 
@@ -773,18 +743,18 @@ $htmlform = $form->generate();
                                                     <div class="elementor-widget-container">
                                                         <h5 class="elementor-heading-title elementor-size-default">Цитата дня</h5>		</div>
                                                 </div>
-<!--                                                <div class="elementor-element elementor-element-754d4c4a elementor-widget elementor-widget-heading" data-id="754d4c4a" data-element_type="widget" data-widget_type="heading.default">-->
-<!--                                                    <div class="elementor-widget-container">-->
-<!--                                                        <h2 class="elementor-heading-title elementor-size-default">What our <br>-->
-<!--                                                            clients say</h2>		</div>-->
-<!--                                                </div>-->
-<!--                                                <div class="elementor-element elementor-element-100cd068 elementor-widget elementor-widget-divider" data-id="100cd068" data-element_type="widget" data-widget_type="divider.default">-->
-<!--                                                    <div class="elementor-widget-container">-->
-<!--                                                        <div class="elementor-divider">-->
-<!--                                                            <span class="elementor-divider-separator"></span>-->
-<!--                                                        </div>-->
-<!--                                                    </div>-->
-<!--                                                </div>-->
+                                                <!--                                                <div class="elementor-element elementor-element-754d4c4a elementor-widget elementor-widget-heading" data-id="754d4c4a" data-element_type="widget" data-widget_type="heading.default">-->
+                                                <!--                                                    <div class="elementor-widget-container">-->
+                                                <!--                                                        <h2 class="elementor-heading-title elementor-size-default">What our <br>-->
+                                                <!--                                                            clients say</h2>		</div>-->
+                                                <!--                                                </div>-->
+                                                <!--                                                <div class="elementor-element elementor-element-100cd068 elementor-widget elementor-widget-divider" data-id="100cd068" data-element_type="widget" data-widget_type="divider.default">-->
+                                                <!--                                                    <div class="elementor-widget-container">-->
+                                                <!--                                                        <div class="elementor-divider">-->
+                                                <!--                                                            <span class="elementor-divider-separator"></span>-->
+                                                <!--                                                        </div>-->
+                                                <!--                                                    </div>-->
+                                                <!--                                                </div>-->
                                                 <div class="elementor-element elementor-element-f223197 elementor-widget elementor-widget-text-editor" data-id="f223197" data-element_type="widget" data-widget_type="text-editor.default">
                                                     <div class="elementor-widget-container">
                                                         <div class="elementor-text-editor elementor-clearfix">Люди платят нам за интеграцию, у них нет времени сутки напролет думать, что к чему подключается.</div>
@@ -934,26 +904,26 @@ $htmlform = $form->generate();
                                                                     <img width="600" height="616" src="img/catalog/krovat.webp" />
                                                                     <h5>Металлические кровати</h5>
                                                                 </figure>
-<!--                                                                <figure class='gallery-item'>-->
-<!--                                                                    <img width="600" height="616" src="img/catalog/tara.webp" />-->
-<!--                                                                    <h5>Тара</h5>-->
-<!--                                                                </figure>-->
+                                                                <!--                                                                <figure class='gallery-item'>-->
+                                                                <!--                                                                    <img width="600" height="616" src="img/catalog/tara.webp" />-->
+                                                                <!--                                                                    <h5>Тара</h5>-->
+                                                                <!--                                                                </figure>-->
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-<!--                                                <div class="elementor-element elementor-element-77141a4 elementor-align-center elementor-widget elementor-widget-button" data-id="77141a4" data-element_type="widget" data-widget_type="button.default">-->
-<!--                                                    <div class="elementor-widget-container">-->
-<!--                                                        <div class="elementor-button-wrapper">-->
-<!--                                                            <a href=""-->
-<!--                                                               class="elementor-button-link elementor-button elementor-size-sm" role="button">-->
-<!--                                                                <span class="elementor-button-content-wrapper">-->
-<!--                                                                    <span class="elementor-button-text">скачать каталог</span>-->
-<!--                                                                </span>-->
-<!--                                                            </a>-->
-<!--                                                        </div>-->
-<!--                                                    </div>-->
-<!--                                                </div>-->
+                                                <!--                                                <div class="elementor-element elementor-element-77141a4 elementor-align-center elementor-widget elementor-widget-button" data-id="77141a4" data-element_type="widget" data-widget_type="button.default">-->
+                                                <!--                                                    <div class="elementor-widget-container">-->
+                                                <!--                                                        <div class="elementor-button-wrapper">-->
+                                                <!--                                                            <a href=""-->
+                                                <!--                                                               class="elementor-button-link elementor-button elementor-size-sm" role="button">-->
+                                                <!--                                                                <span class="elementor-button-content-wrapper">-->
+                                                <!--                                                                    <span class="elementor-button-text">скачать каталог</span>-->
+                                                <!--                                                                </span>-->
+                                                <!--                                                            </a>-->
+                                                <!--                                                        </div>-->
+                                                <!--                                                    </div>-->
+                                                <!--                                                </div>-->
                                             </div>
                                         </div>
                                     </div>
@@ -978,7 +948,7 @@ $htmlform = $form->generate();
 
                         <a id="partners"></a>
 
-                        <section class="elementor-element elementor-element-7e8fc924 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="7e8fc924" data-element_type="section">
+                        <!--section-- class="elementor-element elementor-element-7e8fc924 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="7e8fc924" data-element_type="section">
                             <div class="elementor-container elementor-column-gap-default">
                                 <div class="elementor-row">
                                     <div class="elementor-element elementor-element-54fd60f8 elementor-column elementor-col-50 elementor-top-column" data-id="54fd60f8" data-element_type="column">
@@ -1148,55 +1118,12 @@ $htmlform = $form->generate();
                                                     </div>
                                                 </section>
 
-<!--                                                <section class="elementor-element elementor-element-50c644e6 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-inner-section" data-id="50c644e6" data-element_type="section">-->
-<!--                                                    <div class="elementor-container elementor-column-gap-default">-->
-<!--                                                        <div class="elementor-row">-->
-<!--                                                            <div class="elementor-element elementor-element-162eba31 elementor-column elementor-col-33 elementor-inner-column" data-id="162eba31" data-element_type="column">-->
-<!--                                                                <div class="elementor-column-wrap  elementor-element-populated">-->
-<!--                                                                    <div class="elementor-widget-wrap">-->
-<!--                                                                        <div class="elementor-element elementor-element-49e89c75 elementor-widget elementor-widget-image" data-id="49e89c75" data-element_type="widget" data-widget_type="image.default">-->
-<!--                                                                            <div class="elementor-widget-container">-->
-<!--                                                                                <div class="elementor-image">-->
-<!--                                                                                    <img width="139" height="76" src="https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/home-brands-4.png" class="attachment-full size-full" alt="" />											</div>-->
-<!--                                                                            </div>-->
-<!--                                                                        </div>-->
-<!--                                                                    </div>-->
-<!--                                                                </div>-->
-<!--                                                            </div>-->
-<!--                                                            <div class="elementor-element elementor-element-1d840ef3 elementor-column elementor-col-33 elementor-inner-column" data-id="1d840ef3" data-element_type="column">-->
-<!--                                                                <div class="elementor-column-wrap  elementor-element-populated">-->
-<!--                                                                    <div class="elementor-widget-wrap">-->
-<!--                                                                        <div class="elementor-element elementor-element-783f9473 elementor-widget elementor-widget-image" data-id="783f9473" data-element_type="widget" data-widget_type="image.default">-->
-<!--                                                                            <div class="elementor-widget-container">-->
-<!--                                                                                <div class="elementor-image">-->
-<!--                                                                                    <img width="141" height="82" src="https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/home-brands-5.png" class="attachment-full size-full" alt="" />											</div>-->
-<!--                                                                            </div>-->
-<!--                                                                        </div>-->
-<!--                                                                    </div>-->
-<!--                                                                </div>-->
-<!--                                                            </div>-->
-<!--                                                            <div class="elementor-element elementor-element-53be9e4b elementor-column elementor-col-33 elementor-inner-column" data-id="53be9e4b" data-element_type="column">-->
-<!--                                                                <div class="elementor-column-wrap  elementor-element-populated">-->
-<!--                                                                    <div class="elementor-widget-wrap">-->
-<!--                                                                        <div class="elementor-element elementor-element-1807c3f1 elementor-widget elementor-widget-image" data-id="1807c3f1" data-element_type="widget" data-widget_type="image.default">-->
-<!--                                                                            <div class="elementor-widget-container">-->
-<!--                                                                                <div class="elementor-image">-->
-<!--                                                                                    <img width="124" height="97" src="https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/home-brands-6.png" class="attachment-full size-full" alt="" />											</div>-->
-<!--                                                                            </div>-->
-<!--                                                                        </div>-->
-<!--                                                                    </div>-->
-<!--                                                                </div>-->
-<!--                                                            </div>-->
-<!--                                                        </div>-->
-<!--                                                    </div>-->
-<!--                                                </section>-->
-
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </section>
+                        </section-->
 
 
                         <!-- Contact -->
@@ -1244,9 +1171,9 @@ $htmlform = $form->generate();
                                                                 ОГРН: 1225000065289<br />
                                                                 КПП: 500101001<br />
                                                                 Генеральный&nbsp;директор: Долгалёв&nbsp;Ю.&nbsp;А.<br />
-<!--                                                                Время работы:<br />-->
-<!--                                                                Monday — Thursday 10:00 &#8211; 23:00<br />-->
-<!--                                                                Friday — Sunday 10:00 &#8211; 19:00-->
+                                                                <!--                                                                Время работы:<br />-->
+                                                                <!--                                                                Monday — Thursday 10:00 &#8211; 23:00<br />-->
+                                                                <!--                                                                Friday — Sunday 10:00 &#8211; 19:00-->
                                                             </p>
                                                         </div>
                                                     </div>
@@ -1282,30 +1209,30 @@ $htmlform = $form->generate();
                                                                 <img src="img/Viber2.svg" height="40" width="40" />
                                                             </a>
 
-<!--                                                            <a class="elementor-icon elementor-social-icon elementor-social-icon-facebook" href="https://www.facebook.com/zemezlab/" target="_blank">-->
-<!--                                                                <span class="elementor-screen-only">Facebook</span>-->
-<!--                                                                <i class="fa fa-facebook"></i>-->
-<!--                                                            </a>-->
-<!--                                                            <a class="elementor-icon elementor-social-icon elementor-social-icon-twitter" href="https://twitter.com/zemezlab" target="_blank">-->
-<!--                                                                <span class="elementor-screen-only">Twitter</span>-->
-<!--                                                                <i class="fa fa-twitter"></i>-->
-<!--                                                            </a>-->
-<!--                                                            <a class="elementor-icon elementor-social-icon elementor-social-icon-google-plus" href="https://plus.google.com/" target="_blank">-->
-<!--                                                                <span class="elementor-screen-only">Google-plus</span>-->
-<!--                                                                <i class="fa fa-google-plus"></i>-->
-<!--                                                            </a>-->
-<!--                                                            <a class="elementor-icon elementor-social-icon elementor-social-icon-vimeo" href="https://vimeo.com/" target="_blank">-->
-<!--                                                                <span class="elementor-screen-only">Vimeo</span>-->
-<!--                                                                <i class="fa fa-vimeo"></i>-->
-<!--                                                            </a>-->
-<!--                                                            <a class="elementor-icon elementor-social-icon elementor-social-icon-youtube" href="https://www.youtube.com/channel/UCPW43un8VFXHe9LxKpR_2Hg" target="_blank">-->
-<!--                                                                <span class="elementor-screen-only">Youtube</span>-->
-<!--                                                                <i class="fa fa-youtube"></i>-->
-<!--                                                            </a>-->
-<!--                                                            <a class="elementor-icon elementor-social-icon elementor-social-icon-pinterest" href="https://www.pinterest.com/" target="_blank">-->
-<!--                                                                <span class="elementor-screen-only">Pinterest</span>-->
-<!--                                                                <i class="fa fa-pinterest"></i>-->
-<!--                                                            </a>-->
+                                                            <!--                                                            <a class="elementor-icon elementor-social-icon elementor-social-icon-facebook" href="https://www.facebook.com/zemezlab/" target="_blank">-->
+                                                            <!--                                                                <span class="elementor-screen-only">Facebook</span>-->
+                                                            <!--                                                                <i class="fa fa-facebook"></i>-->
+                                                            <!--                                                            </a>-->
+                                                            <!--                                                            <a class="elementor-icon elementor-social-icon elementor-social-icon-twitter" href="https://twitter.com/zemezlab" target="_blank">-->
+                                                            <!--                                                                <span class="elementor-screen-only">Twitter</span>-->
+                                                            <!--                                                                <i class="fa fa-twitter"></i>-->
+                                                            <!--                                                            </a>-->
+                                                            <!--                                                            <a class="elementor-icon elementor-social-icon elementor-social-icon-google-plus" href="https://plus.google.com/" target="_blank">-->
+                                                            <!--                                                                <span class="elementor-screen-only">Google-plus</span>-->
+                                                            <!--                                                                <i class="fa fa-google-plus"></i>-->
+                                                            <!--                                                            </a>-->
+                                                            <!--                                                            <a class="elementor-icon elementor-social-icon elementor-social-icon-vimeo" href="https://vimeo.com/" target="_blank">-->
+                                                            <!--                                                                <span class="elementor-screen-only">Vimeo</span>-->
+                                                            <!--                                                                <i class="fa fa-vimeo"></i>-->
+                                                            <!--                                                            </a>-->
+                                                            <!--                                                            <a class="elementor-icon elementor-social-icon elementor-social-icon-youtube" href="https://www.youtube.com/channel/UCPW43un8VFXHe9LxKpR_2Hg" target="_blank">-->
+                                                            <!--                                                                <span class="elementor-screen-only">Youtube</span>-->
+                                                            <!--                                                                <i class="fa fa-youtube"></i>-->
+                                                            <!--                                                            </a>-->
+                                                            <!--                                                            <a class="elementor-icon elementor-social-icon elementor-social-icon-pinterest" href="https://www.pinterest.com/" target="_blank">-->
+                                                            <!--                                                                <span class="elementor-screen-only">Pinterest</span>-->
+                                                            <!--                                                                <i class="fa fa-pinterest"></i>-->
+                                                            <!--                                                            </a>-->
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1321,39 +1248,53 @@ $htmlform = $form->generate();
                                                             <div role="form" class="wpcf7" id="wpcf7-f5-p8-o1" lang="en-US" dir="ltr">
                                                                 <div class="screen-reader-response"></div>
 
-                                                <!-- FORM -->
+                                                                <!-- FORM -->
 
-                                                                <form enctype="multipart/form-data" action="/mail.php" method="post" class="wpcf7-form" id="wpcf7-form" novalidate="novalidate">
-
-                                                                    <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
+                                                                <form enctype="multipart/form-data" method="post" class="wpcf7-form" id="wpcf7-form" novalidate="novalidate">
                                                                     <p>
                                                                         <label><br />
-                                                                            <span class="wpcf7-form-control-wrap your-name">
-                                                                                <input type="text" name="your-name" value="" size="40"
+                                                                            <span class="wpcf7-form-control-wrap <?= $form_fields['your-name']['name'] ?>">
+                                                                                <input type="text" name="<?= $form_fields['your-name']['name'] ?>" value="" size="40"
                                                                                        class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true"
-                                                                                       aria-invalid="false" placeholder="Ваше имя" />
+                                                                                       aria-invalid="false" placeholder="<?= $form_fields['your-name']['label'] ?>" />
                                                                             </span>
                                                                         </label>
                                                                     </p>
                                                                     <p>
                                                                         <label><br />
-                                                                            <span class="wpcf7-form-control-wrap your-email">
-                                                                                <input type="email" name="your-email" value="" size="40"
+                                                                            <span class="wpcf7-form-control-wrap <?= $form_fields['your-email']['name'] ?>">
+                                                                                <input type="email" name="<?= $form_fields['your-email']['name'] ?>" value="" size="40"
                                                                                        class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email"
-                                                                                       aria-required="true" aria-invalid="false" placeholder="Ваш email" />
+                                                                                       aria-required="true" aria-invalid="false" placeholder="<?= $form_fields['your-email']['label'] ?>" />
                                                                             </span>
                                                                         </label>
                                                                     </p>
                                                                     <p>
                                                                         <label><br />
-                                                                            <span class="wpcf7-form-control-wrap your-message">
-                                                                                <textarea name="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea"
-                                                                                          aria-invalid="false" placeholder="Текст сообщения"></textarea>
+                                                                            <span class="wpcf7-form-control-wrap <?= $form_fields['your-message']['name'] ?>">
+                                                                                <textarea name="<?= $form_fields['your-message']['name'] ?>" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea"
+                                                                                          aria-invalid="false" placeholder="<?= $form_fields['your-message']['label'] ?>"></textarea>
                                                                             </span>
                                                                         </label>
                                                                     </p>
-                                                                    <p>
-                                                                        <input name="attachment" type="file" />
+
+                                                                    <!--                                                                    <style>-->
+                                                                    <!--                                                                        p.file-input {-->
+                                                                    <!--                                                                            position: relative;-->
+                                                                    <!--                                                                        }-->
+                                                                    <!--                                                                        p.file-input label {-->
+                                                                    <!--                                                                            position: absolute;-->
+                                                                    <!--                                                                            top:0;-->
+                                                                    <!--                                                                            background: #fff;-->
+                                                                    <!--                                                                            width: 80px;-->
+                                                                    <!--                                                                            display: block;-->
+                                                                    <!--                                                                        }-->
+                                                                    <!--                                                                    </style>-->
+                                                                    <!--                                                                    https://developer.mozilla.org/ru/docs/Web/HTML/Element/input/file-->
+
+                                                                    <p class="file-input">
+                                                                        <input name="<?= $form_fields['attachment']['name'] ?>" type="file" />
+                                                                        <!--                                                                        <label for="attachment">Файл</label>-->
                                                                     </p>
                                                                     <p>
                                                                         <input type="submit" value="Отправить" class="wpcf7-form-control wpcf7-submit" />
@@ -1394,42 +1335,43 @@ $htmlform = $form->generate();
                             </div>
                         </section-->
 
-                            <form id="modal-form" style="display:none;" enctype="multipart/form-data" action="/mail.php" method="post" class="wpcf7-form" novalidate="novalidate">
-                                <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
-                                <p>
-                                    <label><br />
-                                        <span class="wpcf7-form-control-wrap your-name">
-                                                                                <input type="text" name="your-name" id="your-name" value="" size="40"
-                                                                                       class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true"
-                                                                                       aria-invalid="false" placeholder="Ваше имя" />
-                                                                            </span>
-                                    </label>
-                                </p>
-                                <p>
-                                    <label><br />
-                                        <span class="wpcf7-form-control-wrap your-email">
-                                                                                <input type="email" name="your-email" id="your-email" value="" size="40"
-                                                                                       class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email"
-                                                                                       aria-required="true" aria-invalid="false" placeholder="Ваш email" />
-                                                                            </span>
-                                    </label>
-                                </p>
-                                <p>
-                                    <label><br />
-                                        <span class="wpcf7-form-control-wrap your-message">
-                                                                                <textarea name="your-message" id="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea"
-                                                                                          aria-invalid="false" placeholder="Текст сообщения"></textarea>
-                                                                            </span>
-                                    </label>
-                                </p>
-                                <p>
-                                    <input name="attachment" id="attachment" type="file" />
-                                </p>
-                                <p>
-                                    <input type="submit" value="Отправить" class="wpcf7-form-control wpcf7-submit" />
-                                </p>
-                                <div class="wpcf7-response-output wpcf7-display-none"></div>
-                            </form>
+                        <form id="modal-form" style="display:none;" enctype="multipart/form-data" method="post" class="wpcf7-form" novalidate="novalidate">
+<!--                            <input type="hidden" name="MAX_FILE_SIZE" value="30000" />-->
+                            <p>
+                                <label><br />
+                                    <span class="wpcf7-form-control-wrap your-name">
+                                        <input type="text" name="<?= $form_fields['your-name']['name'] ?>" id="<?= $form_fields['your-name']['name'] ?>" value="" size="40"
+                                               class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true"
+                                               aria-invalid="false" placeholder="<?= $form_fields['your-name']['label'] ?>" />
+                                    </span>
+                                </label>
+                            </p>
+                            <p>
+                                <label><br />
+                                    <span class="wpcf7-form-control-wrap your-email">
+                                        <input type="email" name="<?= $form_fields['your-email']['name'] ?>" id="<?= $form_fields['your-email']['name'] ?>" value="" size="40"
+                                               class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email"
+                                               aria-required="true" aria-invalid="false" placeholder="<?= $form_fields['your-email']['label'] ?>" />
+                                    </span>
+                                </label>
+                            </p>
+                            <p>
+                                <label><br />
+                                    <span class="wpcf7-form-control-wrap your-message">
+                                        <textarea name="<?= $form_fields['your-message']['name'] ?>" id="<?= $form_fields['your-message']['name'] ?>" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea"
+                                                  aria-invalid="false" placeholder="<?= $form_fields['your-message']['label'] ?>"></textarea>
+                                    </span>
+                                </label>
+                            </p>
+                            <p>
+                                <input name="<?= $form_fields['attachment']['name'] ?>" id="<?= $form_fields['attachment']['name'] ?>" type="file" />
+<!--                                <label for="file-input"><?= $form_fields['attachment']['label'] ?></label>-->
+                            </p>
+                            <p>
+                                <input type="submit" value="Отправить" class="wpcf7-form-control wpcf7-submit" />
+                            </p>
+                            <div class="wpcf7-response-output wpcf7-display-none"></div>
+                        </form>
 
                     </div>
                 </div>
@@ -1463,7 +1405,7 @@ $htmlform = $form->generate();
         let data = new FormData(e.target);
         data.append('xhr', 'xhr');
 
-        let response = await fetch('/mail.php', {
+        let response = await fetch('/', {
             method: 'POST',
             body: data
         });

@@ -1,9 +1,6 @@
 <?php
 
-namespace Builov\Vertolet;
-
-use PHPMailer\PHPMailer\Exception;
-use PHPMailer\PHPMailer\PHPMailer;
+namespace Builov\Vertolet\Application;
 
 interface EmailerInterface
 {

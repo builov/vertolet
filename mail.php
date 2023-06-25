@@ -1,8 +1,8 @@
 <?php
 
-use Builov\Vertolet\CustomerRequestForm;
-use Builov\Vertolet\Emailer;
-use Builov\Vertolet\Uploader;
+use Builov\Vertolet\Application\CustomerRequestForm;
+use Builov\Vertolet\Infrastructure\Emailer;
+use Builov\Vertolet\Infrastructure\Uploader;
 
 require 'vendor/autoload.php';
 require 'config.php';
